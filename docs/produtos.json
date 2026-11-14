@@ -175,12 +175,12 @@
   },
   {
     "id": "escorredor-de-loucas",
-    "nome": "Escorredor de Louças",
+    "nome": "Escorredor de Louças 2 Andares",
     "categoria": "Cozinha",
-    "descricao": "Mor, escorredor de louças baixo para 9 pratos, preto.",
-    "preco": 91.0,
-    "imagem": "img/escorredor-de-loucas.jpg",
-    "link": "https://www.amazon.com.br/dp/B0DS6FXCG6"
+    "descricao": "Aço inoxidável preto, 2 andares, com porta-talheres. Loja oficial Belgrado.",
+    "preco": 68.75,
+    "imagem": "img/escorredor-de-loucas-2.jpg",
+    "link": "https://meli.la/2SX3AzE"
   },
   {
     "id": "panos-de-prato",
