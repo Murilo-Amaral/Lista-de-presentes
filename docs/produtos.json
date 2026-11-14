@@ -127,25 +127,6 @@
     "link": "https://www.mercadolivre.com.br/conjunto-de-frigideiras-de-ferro-fundido-tres-pecas/up/MLBU3921587763"
   },
   {
-    "id": "cortina",
-    "nome": "Cortina Blackout para Trilho Suíço 3 m",
-    "categoria": "Casa e decoração",
-    "descricao": "80% blackout, para trilho suíço, 3 m de largura em 2 partes de 1,50 m. Não acompanha trilho.",
-    "preco": 149.69,
-    "imagem": "img/cortina.jpg",
-    "link": "https://shopee.com.br/product/1196520241/22898844989"
-  },
-  {
-    "id": "trilho-suico",
-    "nome": "Trilho Suiço",
-    "categoria": "Casa e decoração",
-    "descricao": "Trilho suíço simples de alumínio, branco, 2 metros.",
-    "preco": 49.98,
-    "imagem": "img/trilho-suico.jpg",
-    "link": "https://www.amazon.com.br/dp/B0FP4HTVQD",
-    "limite": 4
-  },
-  {
     "id": "edredom-casal",
     "nome": "Edredom Casal",
     "categoria": "Cama e banho",
