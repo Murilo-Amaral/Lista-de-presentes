@@ -25,5 +25,5 @@ window.LISTA_CONFIG = {
 
   // Endereço do "Web App" do Google Apps Script (veja LEIA-ME.md, passo 2).
   // Enquanto estiver vazio, o site mostra os presentes mas não aceita reservas.
-  urlBackend: "",
+  urlBackend: "https://script.google.com/macros/s/AKfycbwwgFaylcAgejKVdv3pZtcWILPeT-_pz_eMSurfBGEsbJW6CfLsgsrF1GugqbFGfQuhQQ/exec",
 };
