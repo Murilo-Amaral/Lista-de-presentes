@@ -225,3 +225,8 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .duplo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .btn.claro{background:#F3EFE8;color:var(--ink)}
 .grid>.vazio{grid-column:1/-1}
+.card.clicavel{cursor:pointer;transition:box-shadow .18s,transform .18s,border-color .18s}
+.card.clicavel:hover{border-color:var(--line-2);box-shadow:0 2px 4px rgba(60,45,30,.05),0 14px 30px -10px rgba(60,45,30,.18);transform:translateY(-2px)}
+.card.clicavel:hover .ph img{transform:scale(1.03)}
+.ph img{transition:transform .25s}
+@media (prefers-reduced-motion:reduce){.card.clicavel,.ph img{transition:none}.card.clicavel:hover{transform:none}.card.clicavel:hover .ph img{transform:none}}

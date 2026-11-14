@@ -137,7 +137,18 @@
       b2.addEventListener("click", function () { abrirPix(p); });
       cb.appendChild(el("div", { class: "acoes" }, [b1, b2]));
     }
-    return el("article", { class: "card" + (res ? " res" : "") }, [ph, cb]);
+    var card = el("article", { class: "card" + (res ? " res" : "") }, [ph, cb]);
+    if (!res) {
+      // Clicar em qualquer parte do cartão (foto incluída) abre a reserva.
+      card.classList.add("clicavel");
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("aria-label", "Reservar " + p.nome);
+      card.addEventListener("click", function (e) { if (!e.target.closest("button, a")) abrirReserva(p); });
+      card.addEventListener("keydown", function (e) {
+        if ((e.key === "Enter" || e.key === " ") && e.target === card) { e.preventDefault(); abrirReserva(p); }
+      });
+    }
+    return card;
   }
 
   function render() {
