@@ -147,12 +147,11 @@
   },
   {
     "id": "grill",
-    "nome": "Grill",
+    "nome": "Grill Philco Maxx Clean PGR21PI",
     "categoria": "Eletrodomésticos",
-    "descricao": "Oster Burguer OGRL500, 2 em 1 com estufa. Escolha a versão 110 V.",
-    "preco": 197.91,
-    "imagem": "img/grill.jpg",
-    "link": "https://www.magazineluiza.com.br/grill-eletrico-burguer-oster-2-em-1-com-estufa/p/fh64jjcga9/ep/epgr/"
+    "descricao": "2 em 1 (grill e sanduicheira), retangular, 1000 W, antiaderente, com coletor de gordura. Escolha a versão 110 V.",
+    "imagem": "img/grill-philco.jpg",
+    "link": "https://www.magazineluiza.com.br/grill-philco-pgr21pi-maxx-clean-2-em-1-retangular-1000w-antiaderente-com-coletor-de-gordura/p/236589800/ep/epgr/?seller_id=magazineluiza"
   },
   {
     "id": "escorredor-de-loucas",
