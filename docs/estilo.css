@@ -195,3 +195,13 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stro
   .qr{width:128px;height:128px}
   .toast{left:12px;right:12px;bottom:12px;max-width:none}
 }
+
+/* retirar reserva */
+.resbox.meu{background:var(--sage-ll);border:1px solid #DCE3D3}
+.resbox.meu .ic{background:var(--sage-d);color:#fff}
+.minha{display:flex;align-items:center;flex-wrap:wrap;gap:4px;font-size:12.5px;color:var(--sage-d);margin:-4px 0 10px}
+.minha svg{width:13px;height:13px}
+.link-acao{font-size:12.5px;color:var(--terra-d);text-decoration:underline;text-underline-offset:3px}
+.txt{font-size:14px;line-height:1.5;color:var(--ink-2)}
+.duplo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.btn.claro{background:#F3EFE8;color:var(--ink)}

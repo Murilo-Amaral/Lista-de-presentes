@@ -2,7 +2,7 @@
   "use strict";
 
   var CFG = window.LISTA_CONFIG || {};
-  var estado = { produtos: [], reservados: new Set(), meus: new Set(lerMeus()), filtro: "todos", atual: null, backendOk: null };
+  var estado = { produtos: [], reservados: new Set(), minhas: lerMinhas(), filtro: "todos", atual: null, backendOk: null };
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
@@ -27,8 +27,18 @@
     if (v === null || v === undefined || v === "" || isNaN(Number(v))) return "";
     return Number(v).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
   }
-  function lerMeus() { try { return JSON.parse(localStorage.getItem("lista:meus") || "[]"); } catch (e) { return []; } }
-  function marcarMeu(id) { estado.meus.add(id); try { localStorage.setItem("lista:meus", JSON.stringify(Array.from(estado.meus))); } catch (e) {} }
+  // Reservas feitas neste aparelho: { idReservado: codigoSecreto }. Só quem tem o código consegue retirar.
+  function lerMinhas() { try { var o = JSON.parse(localStorage.getItem("lista:minhas") || "{}"); return o && typeof o === "object" ? o : {}; } catch (e) { return {}; } }
+  function salvarMinhas() { try { localStorage.setItem("lista:minhas", JSON.stringify(estado.minhas)); } catch (e) {} }
+  function novoCodigo() {
+    var b = new Uint8Array(18); (window.crypto || window.msCrypto).getRandomValues(b);
+    return btoa(String.fromCharCode.apply(null, b)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  }
+  function minhaReserva(p) {
+    if (!p.repetivel) return estado.minhas[p.id] ? p.id : null;
+    var ids = Object.keys(estado.minhas).filter(function (k) { return k.indexOf(p.id + "#") === 0; });
+    return ids.length ? ids[0] : null;
+  }
   function lembrarNome(v) { try { if (v) localStorage.setItem("lista:nome", v); } catch (e) {} }
   function nomeLembrado() { try { return localStorage.getItem("lista:nome") || ""; } catch (e) { return ""; } }
 
@@ -61,6 +71,8 @@
     if (!CFG.urlBackend) { estado.backendOk = false; aviso("As reservas ainda não foram ativadas pelos anfitriões. Você já pode ver os presentes."); return Promise.resolve(); }
     return api(null).then(function (r) {
       estado.reservados = new Set((r && r.reservados) || []);
+      Object.keys(estado.minhas).forEach(function (k) { if (!estado.reservados.has(k)) delete estado.minhas[k]; });
+      salvarMinhas();
       estado.backendOk = true; aviso(""); render();
     }).catch(function () {
       estado.backendOk = false;
@@ -95,14 +107,28 @@
     if (p.repetivel) {
       var n = vezes(p);
       cb.appendChild(el("span", { class: "chip s multi" }, ["∞ Várias pessoas podem escolher" + (n ? " · " + n + (n === 1 ? " já escolheu" : " já escolheram") : "")]));
+      var minha = minhaReserva(p);
+      if (minha) {
+        var desistir = el("button", { class: "link-acao", type: "button", text: "Cancelar minha escolha" });
+        desistir.addEventListener("click", function () { abrirCancelar(p, minha); });
+        cb.appendChild(el("p", { class: "minha" }, [icone("check"), "Você escolheu este presente · ", desistir]));
+      }
     }
 
-    if (res) {
+    if (res && minhaReserva(p)) {
+      var retirar = el("button", { class: "btn sec", type: "button" }, [icone("undo"), "Retirar reserva"]);
+      retirar.addEventListener("click", function () { abrirCancelar(p, p.id); });
+      cb.appendChild(el("div", { class: "acoes" }, [
+        el("div", { class: "resbox meu" }, [
+          el("span", { class: "ic" }, [icone("check")]),
+          el("div", null, [el("b", { text: "Reservado por você" }), el("span", { text: "Obrigado pelo carinho!" })])
+        ]),
+        retirar
+      ]));
+    } else if (res) {
       cb.appendChild(el("div", { class: "resbox" }, [
         el("span", { class: "ic" }, [icone("check")]),
-        estado.meus.has(p.id)
-          ? el("div", null, [el("b", { text: "Reservado por você" }), el("span", { text: "Obrigado pelo carinho!" })])
-          : el("div", null, [el("b", { text: "Reservado por outra pessoa" }), el("span", { text: "Este presente já foi escolhido" })])
+        el("div", null, [el("b", { text: "Reservado por outra pessoa" }), el("span", { text: "Este presente já foi escolhido" })])
       ]));
     } else {
       var b1 = el("button", { class: "btn pri", type: "button" }, [icone("gift"), "Reservar presente"]);
@@ -139,6 +165,7 @@
   function mensagemErro(e) {
     if (e && e.codigo === "sem_backend") return "As reservas ainda não foram ativadas pelos anfitriões.";
     if (e && e.codigo === "ja_reservado") return "Poxa, alguém acabou de reservar este presente. Escolha outro ou contribua via Pix.";
+    if (e && e.codigo === "nao_autorizado") return "Não encontramos esta reserva. Talvez os anfitriões já tenham cancelado — atualize a página.";
     return "Não foi possível concluir agora. Verifique sua conexão e tente de novo.";
   }
 
@@ -169,8 +196,6 @@
       if (CFG.pix.imagemQr) { var q = $("#qr"); q.textContent = ""; q.appendChild(el("img", { src: CFG.pix.imagemQr, alt: "QR Code Pix" })); }
       else desenharQr(codigoPix());
     }
-    $("[data-so-item]", f).hidden = !p || !!p.repetivel;
-    f.reservar.checked = false;
     f.nome.value = nomeLembrado();
     erro(f, "");
     m.showModal();
@@ -196,10 +221,11 @@
     if (!nome) { erro(f, "Conte pra gente o seu nome."); f.nome.focus(); return; }
     var bt = $("[data-enviar]", f); bt.disabled = true; erro(f, "");
     var idEnvio = p.repetivel ? p.id + "#" + Date.now() : p.id;
-    api({ acao: "reservar", id: idEnvio, presente: p.nome, nome: nome })
+    var codigo = novoCodigo();
+    api({ acao: "reservar", id: idEnvio, presente: p.nome, nome: nome, codigo: codigo })
       .then(function (r) {
         if (!r || !r.ok) throw { codigo: (r && r.erro) || "falha" };
-        lembrarNome(nome); if (!p.repetivel) marcarMeu(p.id);
+        lembrarNome(nome); estado.minhas[idEnvio] = codigo; salvarMinhas();
         estado.reservados.add(idEnvio); render();
         $("#modalReserva").close();
         toast("Reservado com sucesso", "Presente reservado com sucesso. Obrigado pelo carinho!", r.telegram);
@@ -215,20 +241,43 @@
     ev.preventDefault();
     var f = ev.target, p = estado.atual, nome = f.nome.value.trim();
     if (!nome) { erro(f, "Conte pra gente o seu nome."); f.nome.focus(); return; }
-    var reservar = !!(p && f.reservar.checked);
     var bt = $("[data-enviar]", f); bt.disabled = true; erro(f, "");
-    api({ acao: "pix", id: p ? p.id : "", presente: p ? p.nome : "", nome: nome, reservar: reservar })
+    api({ acao: "pix", id: p ? p.id : "", presente: p ? p.nome : "", nome: nome })
       .then(function (r) {
         if (!r || !r.ok) throw { codigo: (r && r.erro) || "falha" };
         lembrarNome(nome);
-        if (reservar && !r.jaReservado) { marcarMeu(p.id); estado.reservados.add(p.id); render(); }
         $("#modalPix").close();
-        if (r.jaReservado) return toast("Obrigado pelo Pix!", "Os anfitriões foram avisados. Este presente já tinha sido reservado por outra pessoa.", r.telegram);
-        toast(reservar ? "Reservado com sucesso" : "Obrigado pelo Pix!", reservar ? "Seu Pix foi registrado e o presente ficou reservado." : "Os anfitriões vão adorar saber.", r.telegram);
+        toast("Obrigado pelo Pix!", "Os anfitriões vão adorar saber.", r.telegram);
+      })
+      .catch(function (e) { erro(f, mensagemErro(e)); })
+      .then(function () { bt.disabled = false; });
+  });
+
+  // ---------- retirar reserva ----------
+  var cancelando = null;
+  function abrirCancelar(p, idReserva) {
+    cancelando = { p: p, id: idReserva };
+    var f = $("#formCancelar");
+    preencherItem($("[data-item]", f), p);
+    $("#mcTitulo").textContent = p.repetivel ? "Cancelar sua escolha?" : "Retirar reserva?";
+    erro(f, "");
+    $("#modalCancelar").showModal();
+  }
+  $("#formCancelar").addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var f = ev.target, c = cancelando; if (!c) return;
+    var bt = $("[data-enviar]", f); bt.disabled = true; erro(f, "");
+    api({ acao: "cancelar", id: c.id, codigo: estado.minhas[c.id] })
+      .then(function (r) {
+        if (!r || !r.ok) throw { codigo: (r && r.erro) || "falha" };
+        delete estado.minhas[c.id]; salvarMinhas();
+        estado.reservados.delete(c.id); render();
+        $("#modalCancelar").close();
+        toast("Reserva retirada", "O presente voltou a ficar disponível na lista.", r.telegram);
       })
       .catch(function (e) {
         erro(f, mensagemErro(e));
-        if (e && e.codigo === "ja_reservado" && p) { estado.reservados.add(p.id); render(); }
+        if (e && e.codigo === "nao_autorizado") { delete estado.minhas[c.id]; salvarMinhas(); carregarReservas(); }
       })
       .then(function () { bt.disabled = false; });
   });

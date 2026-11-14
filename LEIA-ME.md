@@ -4,7 +4,8 @@ Site público da lista de presentes do chá de casa nova. Os convidados abrem o 
 
 - ver os presentes (foto, nome, descrição, valor de referência e link do anúncio);
 - **reservar** um presente: ele passa a aparecer como "Tem dono" para todo mundo;
-- **contribuir via Pix**: QR Code da sua chave e botão "Copiar chave", com a opção de avisar que enviou e de marcar o presente como reservado.
+- **retirar a própria reserva**, se mudar de ideia (só quem reservou, no mesmo aparelho);
+- **contribuir via Pix**: QR Code da sua chave e botão "Copiar chave", com a opção de avisar que enviou.
 
 A cada reserva ou aviso de Pix, você recebe uma mensagem no **Telegram**.
 
@@ -40,7 +41,7 @@ Nessa etapa o site já mostra os presentes, mas ainda não aceita reservas.
    - Clique em **Implantar** e autorize com sua conta Google. Se aparecer "o Google não verificou este app", clique em **Avançado → Acessar (não seguro)**: o app é seu, então pode seguir.
 5. Copie a **URL do app da Web** (termina em `/exec`) e mande para o Claude, ou cole você mesmo em `docs/config.js`, no campo `urlBackend`.
 
-As reservas aparecem na aba **Reservas** da planilha. **Para cancelar uma reserva, apague a linha dela.**
+As reservas aparecem na aba **Reservas** da planilha. Quem reservou pode **retirar a reserva pelo próprio site**, no mesmo aparelho e navegador em que reservou. Você, como anfitrião, pode cancelar qualquer reserva **apagando a linha dela**.
 
 > Se um dia você mudar o código do Apps Script, use **Implantar → Gerenciar implantações → editar (lápis) → Versão: Nova versão**. Assim a URL continua a mesma.
 
