@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nosso cantinho novo · Lista de presentes</title>
+<meta name="description" content="Lista de presentes do nosso chá de casa nova. Escolha um presente ou contribua via Pix.">
+<meta name="theme-color" content="#FBF7F0">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nosso cantinho novo · Lista de presentes">
+<meta property="og:description" content="Escolha um presente para reservar ou contribua via Pix.">
+<meta property="og:image" content="https://murilo-amaral.github.io/Lista-de-presentes/img/compartilhar.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23E8EDE1'/%3E%3Cpath d='M8 15l8-7 8 7M10 14v9h4v-5h4v5h4v-9' fill='none' stroke='%2356664B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3 10 14"/><path d="M21 3l-7 18-4-7-7-4z"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#topo"><span class="mk"><svg class="i"><use href="#i-home"/></svg></span>Lista de presentes</a>
+    <nav class="links">
+      <a href="#presentes">Presentes</a>
+      <a href="#" data-abrir-pix>Contribuir via Pix</a>
+      <a href="#como-funciona">Como funciona</a>
+    </nav>
+    <button class="share" id="btnCompartilhar" type="button"><svg class="i"><use href="#i-share"/></svg><span>Compartilhar</span></button>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="wrap hero">
+    <div class="hero-txt">
+      <span class="eyebrow"><svg class="i"><use href="#i-cal"/></svg><span id="etiqueta"></span></span>
+      <h1 class="serif" id="titulo"></h1>
+      <p class="lead" id="mensagem"></p>
+    </div>
+    <aside class="how" id="como-funciona">
+      <h4>Como funciona</h4>
+      <div class="step"><span class="n">1</span><div class="tx"><b>Escolha um presente</b> disponível na lista</div></div>
+      <div class="step"><span class="n">2</span><div class="tx"><b>Decida como presentear</b>
+        <div class="or"><span class="chip t"><svg class="i"><use href="#i-bag"/></svg>Comprar o produto</span><span class="chip s"><svg class="i"><use href="#i-qr"/></svg>Enviar via Pix</span></div></div></div>
+      <div class="step"><span class="n">3</span><div class="tx"><b>Pronto!</b> Os anfitriões recebem um aviso</div></div>
+    </aside>
+  </section>
+
+  <section class="wrap" id="presentes">
+    <div class="sechead">
+      <h2>Presentes <small id="contagem"></small></h2>
+      <div class="filters" role="tablist">
+        <button class="on" data-filtro="todos" type="button">Todos</button>
+        <button data-filtro="disponiveis" type="button">Disponíveis</button>
+        <button data-filtro="reservados" type="button">Reservados</button>
+      </div>
+    </div>
+    <div class="aviso" id="aviso" hidden></div>
+    <div class="grid" id="grade"></div>
+    <div class="vazio" id="vazio" hidden>
+      <span class="mk"><svg class="i"><use href="#i-gift"/></svg></span>
+      <b>Os presentes aparecem aqui em breve</b>
+      <span>Enquanto isso, você já pode contribuir via Pix.</span>
+    </div>
+  </section>
+
+  <section class="wrap pix-faixa">
+    <div>
+      <b>Prefere contribuir com um valor livre?</b>
+      <span>Envie qualquer quantia via Pix para ajudar a montar a casa.</span>
+    </div>
+    <button class="btn sage" type="button" data-abrir-pix><svg class="i"><use href="#i-qr"/></svg>Contribuir via Pix</button>
+  </section>
+</main>
+
+<footer class="wrap rodape">Feito com carinho para o nosso chá de casa nova.</footer>
+
+<!-- ============ Modal: reservar ============ -->
+<dialog class="modal" id="modalReserva" aria-labelledby="mrTitulo">
+  <form method="dialog" class="modal-in" id="formReserva">
+    <div class="top"><h3 id="mrTitulo">Reservar presente</h3><button class="x" type="button" data-fechar aria-label="Fechar"><svg class="i"><use href="#i-x"/></svg></button></div>
+    <div class="item" data-item></div>
+    <div class="opts">
+      <button type="button" class="opt on" data-modo="comprar"><span class="radio"></span><span class="oi t"><svg class="i"><use href="#i-bag"/></svg></span><b>Comprar o produto</b><span>Você compra e entrega</span></button>
+      <button type="button" class="opt" data-modo="pix"><span class="radio"></span><span class="oi s"><svg class="i"><use href="#i-qr"/></svg></span><b>Contribuir via Pix</b><span>Envie o valor aos anfitriões</span></button>
+    </div>
+    <a class="anuncio" id="mrAnuncio" target="_blank" rel="noopener"><svg class="i"><use href="#i-ext"/></svg>Ver o anúncio do produto</a>
+    <label class="campo">Seu nome <small>(só os anfitriões verão)</small>
+      <input type="text" name="nome" maxlength="60" autocomplete="name" placeholder="Como os anfitriões te chamam" required>
+    </label>
+    <p class="erro" data-erro hidden></p>
+    <button class="btn pri grande" type="submit" data-enviar><svg class="i"><use href="#i-gift"/></svg>Confirmar reserva</button>
+    <p class="note"><svg class="i"><use href="#i-info"/></svg>Depois de reservar, o presente aparece como "Tem dono" para os outros convidados.</p>
+  </form>
+</dialog>
+
+<!-- ============ Modal: Pix ============ -->
+<dialog class="modal" id="modalPix" aria-labelledby="mpTitulo">
+  <form method="dialog" class="modal-in" id="formPix">
+    <div class="top"><h3 id="mpTitulo">Contribuir via Pix</h3><button class="x" type="button" data-fechar aria-label="Fechar"><svg class="i"><use href="#i-x"/></svg></button></div>
+    <div class="item" data-item></div>
+    <div data-pix-ok>
+      <div class="qrwrap">
+        <div class="qr" id="qr"></div>
+        <div class="qrtx"><b>Escaneie no app do banco</b><span>Use a câmera do app do seu banco.</span><span class="sugerido" id="mpSugerido"></span></div>
+      </div>
+      <div class="orlbl">Ou copie a chave Pix</div>
+      <div class="keyrow">
+        <div class="key" id="mpChave"></div>
+        <button class="copy" type="button" id="btnCopiar"><svg class="i"><use href="#i-copy"/></svg><span>Copiar chave</span></button>
+      </div>
+      <div class="avisar">
+        <b>Já enviou? Avise os anfitriões</b>
+        <label class="campo">Seu nome
+          <input type="text" name="nome" maxlength="60" autocomplete="name" placeholder="Como os anfitriões te chamam">
+        </label>
+        <label class="check" data-so-item><input type="checkbox" name="reservar"> Paguei o valor do presente — marcar como reservado</label>
+        <p class="erro" data-erro hidden></p>
+        <button class="btn sage grande" type="submit" data-enviar><svg class="i"><use href="#i-send"/></svg>Avisar que enviei</button>
+      </div>
+    </div>
+    <div class="pix-off" data-pix-off hidden>
+      <svg class="i"><use href="#i-info"/></svg>
+      <span>A chave Pix ainda não foi configurada pelos anfitriões.</span>
+    </div>
+  </form>
+</dialog>
+
+<!-- ============ Confirmação ============ -->
+<div class="toast" id="toast" role="status" aria-live="polite" hidden>
+  <span class="ck"><svg class="i"><use href="#i-check"/></svg></span>
+  <div><b id="toastTitulo">Reservado com sucesso</b><span id="toastTexto"></span><span class="tg" id="toastTg" hidden><svg class="i"><use href="#i-send"/></svg>Notificação enviada pelo Telegram</span></div>
+  <button class="x" id="toastFechar" aria-label="Fechar"><svg class="i"><use href="#i-x"/></svg></button>
+</div>
+
+<script src="config.js"></script>
+<script src="vendor/qrcode.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
