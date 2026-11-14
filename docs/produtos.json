@@ -1,1 +1,127 @@
-[]
+[
+  {
+    "id": "jogo-de-facas",
+    "nome": "Jogo de Facas",
+    "descricao": "",
+    "preco": 67.9,
+    "imagem": "https://m.media-amazon.com/images/I/71EVjVGyw8L._AC_SY355_.jpg",
+    "link": "https://www.amazon.com.br/dp/B01HOJHOLW"
+  },
+  {
+    "id": "panela-de-pressao-brinox",
+    "nome": "Panela de Pressão Brinox",
+    "descricao": "",
+    "preco": 192.9,
+    "imagem": "https://m.media-amazon.com/images/I/515ty+4I4BL._AC_SY355_.jpg",
+    "link": "https://www.amazon.com.br/dp/B08YFLVSBP"
+  },
+  {
+    "id": "forno-eletrico-de-bancada-mueller-mfb50f",
+    "nome": "Forno Elétrico de Bancada Mueller MFB50F",
+    "descricao": "",
+    "preco": 693.7,
+    "imagem": "https://loja.mueller.ind.br/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/s/e/sem_t_tulo-3_1_8.jpg",
+    "link": "https://loja.mueller.ind.br/forno-eletrico-de-bancada-mueller-50-litros-e-vidro-duplo-mfb50f-preto.html"
+  },
+  {
+    "id": "tabua-de-madeira",
+    "nome": "Tábua de Madeira",
+    "descricao": ""
+  },
+  {
+    "id": "aspirador-de-po-vertical",
+    "nome": "Aspirador de Pó Vertical",
+    "descricao": ""
+  },
+  {
+    "id": "potes-hermeticos-de-vidro",
+    "nome": "Potes Herméticos de Vidro",
+    "descricao": ""
+  },
+  {
+    "id": "potes-hermeticos",
+    "nome": "Potes Herméticos",
+    "descricao": ""
+  },
+  {
+    "id": "espatula-de-silicone",
+    "nome": "Espátula de Silicone",
+    "descricao": ""
+  },
+  {
+    "id": "lixeira-automatica-para-banheiro",
+    "nome": "Lixeira Automática para Banheiro",
+    "descricao": ""
+  },
+  {
+    "id": "cesto-de-roupa",
+    "nome": "Cesto de Roupa",
+    "descricao": ""
+  },
+  {
+    "id": "conjunto-de-panela-de-inox-fundo-triplo",
+    "nome": "Conjunto de Panela de Inox Fundo Triplo",
+    "descricao": ""
+  },
+  {
+    "id": "micro-ondas",
+    "nome": "Micro-ondas",
+    "descricao": ""
+  },
+  {
+    "id": "jarra-de-agua",
+    "nome": "Jarra de Água",
+    "descricao": ""
+  },
+  {
+    "id": "frigideira",
+    "nome": "Frigideira",
+    "descricao": ""
+  },
+  {
+    "id": "cortina",
+    "nome": "Cortina",
+    "descricao": ""
+  },
+  {
+    "id": "trilho-suico",
+    "nome": "Trilho Suiço",
+    "descricao": "",
+    "repetivel": true
+  },
+  {
+    "id": "edredom-casal",
+    "nome": "Edredom Casal",
+    "descricao": ""
+  },
+  {
+    "id": "conjunto-de-cama-queen",
+    "nome": "Conjunto de Cama Queen",
+    "descricao": ""
+  },
+  {
+    "id": "grill",
+    "nome": "Grill",
+    "descricao": ""
+  },
+  {
+    "id": "escorredor-de-loucas",
+    "nome": "Escorredor de Louças",
+    "descricao": ""
+  },
+  {
+    "id": "panos-de-prato",
+    "nome": "Panos de Prato",
+    "descricao": ""
+  },
+  {
+    "id": "tapetes",
+    "nome": "Tapetes",
+    "descricao": ""
+  },
+  {
+    "id": "pano-de-chao",
+    "nome": "Pano de Chão",
+    "descricao": ""
+  }
+]

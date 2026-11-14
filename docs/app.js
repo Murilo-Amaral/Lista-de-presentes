@@ -32,6 +32,11 @@
   function lembrarNome(v) { try { if (v) localStorage.setItem("lista:nome", v); } catch (e) {} }
   function nomeLembrado() { try { return localStorage.getItem("lista:nome") || ""; } catch (e) { return ""; } }
 
+  // Presentes "repetíveis" (várias pessoas podem escolher) nunca ficam travados:
+  // cada escolha é registrada com um id próprio, no formato "<id>#<data>".
+  function reservado(p) { return !p.repetivel && estado.reservados.has(p.id); }
+  function vezes(p) { var n = 0; estado.reservados.forEach(function (id) { if (id.indexOf(p.id + "#") === 0) n++; }); return n; }
+
   // ---------- textos do topo ----------
   function textos() {
     var t = (CFG.titulo || "Socorro, viramos donos de casa").trim();
@@ -72,13 +77,13 @@
   }
 
   function cartao(p) {
-    var res = estado.reservados.has(p.id);
+    var res = reservado(p);
     var ph = el("div", { class: "ph" });
     if (p.imagem) {
       var img = el("img", { src: p.imagem, alt: p.nome, loading: "lazy", referrerpolicy: "no-referrer" });
       img.onerror = function () { img.remove(); ph.appendChild(el("span", { class: "sem" }, [icone("gift")])); };
       ph.appendChild(img);
-    } else ph.appendChild(el("span", { class: "sem" }, [icone("gift")]));
+    } else { ph.classList.add("vazia"); ph.appendChild(el("span", { class: "sem" }, [icone("gift")])); }
     ph.appendChild(res
       ? el("span", { class: "badge own" }, [icone("lock"), "Tem dono"])
       : el("span", { class: "badge av" }, [el("i"), "Disponível"]));
@@ -87,6 +92,10 @@
     var cb = el("div", { class: "cb" }, [el("h3", { text: p.nome })]);
     if (p.descricao) cb.appendChild(el("p", { text: p.descricao }));
     if (preco(p.preco)) cb.appendChild(el("div", { class: "price" }, [el("b", { text: preco(p.preco) }), el("span", { text: "valor de referência" })]));
+    if (p.repetivel) {
+      var n = vezes(p);
+      cb.appendChild(el("span", { class: "chip s multi" }, ["∞ Várias pessoas podem escolher" + (n ? " · " + n + (n === 1 ? " já escolheu" : " já escolheram") : "")]));
+    }
 
     if (res) {
       cb.appendChild(el("div", { class: "resbox" }, [
@@ -108,10 +117,10 @@
   function render() {
     var g = $("#grade"); g.textContent = "";
     var total = estado.produtos.length;
-    var livres = estado.produtos.filter(function (p) { return !estado.reservados.has(p.id); }).length;
+    var livres = estado.produtos.filter(function (p) { return !reservado(p); }).length;
     $("#contagem").textContent = total ? (livres === 1 ? "1 de " + total + " ainda disponível" : livres + " de " + total + " ainda disponíveis") : "";
     var lista = estado.produtos.filter(function (p) {
-      var r = estado.reservados.has(p.id);
+      var r = reservado(p);
       return estado.filtro === "todos" || (estado.filtro === "reservados" ? r : !r);
     });
     lista.forEach(function (p) { g.appendChild(cartao(p)); });
@@ -160,7 +169,7 @@
       if (CFG.pix.imagemQr) { var q = $("#qr"); q.textContent = ""; q.appendChild(el("img", { src: CFG.pix.imagemQr, alt: "QR Code Pix" })); }
       else desenharQr(codigoPix());
     }
-    $("[data-so-item]", f).hidden = !p;
+    $("[data-so-item]", f).hidden = !p || !!p.repetivel;
     f.reservar.checked = false;
     f.nome.value = nomeLembrado();
     erro(f, "");
@@ -186,11 +195,12 @@
     var f = ev.target, p = estado.atual, nome = f.nome.value.trim();
     if (!nome) { erro(f, "Conte pra gente o seu nome."); f.nome.focus(); return; }
     var bt = $("[data-enviar]", f); bt.disabled = true; erro(f, "");
-    api({ acao: "reservar", id: p.id, presente: p.nome, nome: nome })
+    var idEnvio = p.repetivel ? p.id + "#" + Date.now() : p.id;
+    api({ acao: "reservar", id: idEnvio, presente: p.nome, nome: nome })
       .then(function (r) {
         if (!r || !r.ok) throw { codigo: (r && r.erro) || "falha" };
-        lembrarNome(nome); marcarMeu(p.id);
-        estado.reservados.add(p.id); render();
+        lembrarNome(nome); if (!p.repetivel) marcarMeu(p.id);
+        estado.reservados.add(idEnvio); render();
         $("#modalReserva").close();
         toast("Reservado com sucesso", "Presente reservado com sucesso. Obrigado pelo carinho!", r.telegram);
       })

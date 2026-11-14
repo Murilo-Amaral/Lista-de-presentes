@@ -64,6 +64,11 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .ph img{width:100%;height:100%;object-fit:contain;padding:14px;display:block}
 .ph .sem{position:absolute;inset:0;display:grid;place-items:center;color:var(--line-2)}
 .ph .sem svg{width:48px;height:48px}
+.ph.vazia{aspect-ratio:auto;height:132px;background:var(--sage-ll)}
+.ph.vazia .sem{color:#C9D3BE}
+.ph.vazia .sem svg{width:36px;height:36px}
+.cb h3{margin-bottom:2px}
+.acoes{padding-top:10px}
 .imp{position:absolute;left:10px;bottom:10px;display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:500;color:var(--ink-2);background:rgba(255,253,249,.9);backdrop-filter:blur(4px);border:1px solid rgba(0,0,0,.06);border-radius:999px;padding:4px 9px 4px 7px}
 .imp svg{width:11px;height:11px}
 .badge{position:absolute;left:10px;top:10px;display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;border-radius:999px;padding:5px 10px}
@@ -78,6 +83,7 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .price b{font-size:15.5px;font-weight:600}
 .price span{font-size:11.5px;color:var(--muted)}
 .acoes{margin-top:auto}
+.chip.multi{align-self:flex-start;margin:-2px 0 12px;white-space:normal}
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;height:42px;border-radius:12px;font-size:14px;font-weight:600;width:100%;transition:filter .15s}
 .btn:hover{filter:brightness(.95)}
 .btn:disabled{opacity:.6;cursor:wait}
