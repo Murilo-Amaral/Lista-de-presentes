@@ -30,121 +30,181 @@
     "id": "tabua-de-madeira",
     "nome": "Tábua de Madeira",
     "categoria": "Cozinha",
-    "descricao": ""
+    "descricao": "Tábua de corte Stolf em madeira teca.",
+    "preco": 113.48,
+    "imagem": "img/tabua-de-madeira.jpg",
+    "link": "https://www.amazon.com.br/dp/B0821SHKZV"
   },
   {
     "id": "aspirador-de-po-vertical",
     "nome": "Aspirador de Pó Vertical",
     "categoria": "Eletrodomésticos",
-    "descricao": ""
+    "descricao": "Electrolux STK14B, 2 em 1 (vertical e portátil), 1450 W, filtro HEPA, 127 V.",
+    "preco": 169.9,
+    "imagem": "img/aspirador-de-po-vertical.jpg",
+    "link": "https://www.webcontinental.com.br/aspirador-de-po-vertical-com-fio-electrolux-1450w-2-em-1-filtro-hepa-branco-stk14b-127v-001006002139/p"
   },
   {
     "id": "potes-hermeticos-de-vidro",
     "nome": "Potes Herméticos de Vidro",
     "categoria": "Cozinha",
-    "descricao": ""
+    "descricao": "Electrolux, 4 potes de vidro herméticos com tampa de bambu.",
+    "preco": 59.76,
+    "imagem": "img/potes-hermeticos-de-vidro.jpg",
+    "link": "https://www.amazon.com.br/dp/B094S8TXCT"
   },
   {
     "id": "potes-hermeticos",
     "nome": "Potes Herméticos",
     "categoria": "Cozinha",
-    "descricao": ""
+    "descricao": "Electrolux, 10 potes herméticos de plástico, livres de BPA.",
+    "preco": 68.91,
+    "imagem": "img/potes-hermeticos.jpg",
+    "link": "https://www.americanas.com.br/potes-hermeticos-electrolux-de-plastico-branco-retangular-com-10-unidades-1738690u7768fb88/p"
   },
   {
     "id": "espatula-de-silicone",
     "nome": "Espátula de Silicone",
     "categoria": "Cozinha",
-    "descricao": ""
+    "descricao": "Oikos, espátula de silicone reta.",
+    "preco": 14.9,
+    "imagem": "img/espatula-de-silicone.jpg",
+    "link": "https://www.amazon.com.br/dp/B085M4N2W4"
   },
   {
     "id": "lixeira-automatica-para-banheiro",
     "nome": "Lixeira Automática para Banheiro",
     "categoria": "Cama e banho",
-    "descricao": ""
+    "descricao": "Coza Press, 5 litros, preta: a tampa abre com um toque.",
+    "preco": 39.99,
+    "imagem": "img/lixeira-automatica-para-banheiro.jpg",
+    "link": "https://www.amazon.com.br/dp/B0779MSCLG"
   },
   {
     "id": "cesto-de-roupa",
     "nome": "Cesto de Roupa",
     "categoria": "Limpeza e lavanderia",
-    "descricao": ""
+    "descricao": "Cesto de roupa suja em bambu, com tampa, alças e forro.",
+    "preco": 49.9,
+    "imagem": "img/cesto-de-roupa.jpg",
+    "link": "https://www.amazon.com.br/dp/B0C8P9Q9P5"
   },
   {
     "id": "conjunto-de-panela-de-inox-fundo-triplo",
     "nome": "Conjunto de Panela de Inox Fundo Triplo",
     "categoria": "Cozinha",
-    "descricao": ""
+    "descricao": "Tramontina Allegra, 5 peças em aço inox com fundo triplo.",
+    "preco": 337.72,
+    "imagem": "img/conjunto-de-panela-de-inox-fundo-triplo.jpg",
+    "link": "https://www.amazon.com.br/dp/B09TCD67Q3"
   },
   {
     "id": "micro-ondas",
     "nome": "Micro-ondas",
     "categoria": "Eletrodomésticos",
-    "descricao": ""
+    "descricao": "LG MS3043BR, 30 litros, EasyClean, prata, 127 V.",
+    "preco": 699.0,
+    "imagem": "img/micro-ondas.jpg",
+    "link": "https://www.amazon.com.br/dp/B0D9Z2N69R"
   },
   {
     "id": "jarra-de-agua",
     "nome": "Jarra de Água",
     "categoria": "Cozinha",
-    "descricao": ""
+    "descricao": "Lyor, jarra de vidro de 1 litro com tampa.",
+    "preco": 32.39,
+    "imagem": "img/jarra-de-agua.jpg",
+    "link": "https://www.magazineluiza.com.br/jarra-vidro-com-tampa-de-plastico-branca-1-litro-suco-agua-lyor/p/ck073fjh46/ud/udjr/"
   },
   {
     "id": "frigideira",
     "nome": "Frigideira",
     "categoria": "Cozinha",
-    "descricao": ""
+    "descricao": "Tramontina Loreto, funda, 24 cm, antiaderente.",
+    "preco": 44.9,
+    "imagem": "img/frigideira.jpg",
+    "link": "https://www.amazon.com.br/dp/B09Y7GM4KY"
   },
   {
     "id": "cortina",
     "nome": "Cortina",
     "categoria": "Casa e decoração",
-    "descricao": ""
+    "descricao": "Cortina em oxford para trilho suíço, 2 m de largura, branca.",
+    "preco": 122.95,
+    "imagem": "img/cortina.jpg",
+    "link": "https://www.magazineluiza.com.br/cortina-2-mts-sala-quarto-oxford-para-trilho-suisso-baratissima-branco-100-poliester-casa-show-enxovais/p/cch6cha496/cm/ctqu/"
   },
   {
     "id": "trilho-suico",
     "nome": "Trilho Suiço",
     "categoria": "Casa e decoração",
-    "descricao": "",
+    "descricao": "Trilho suíço simples de alumínio, branco, 2 metros.",
+    "preco": 49.98,
+    "imagem": "img/trilho-suico.jpg",
+    "link": "https://www.amazon.com.br/dp/B0FP4HTVQD",
     "repetivel": true
   },
   {
     "id": "edredom-casal",
     "nome": "Edredom Casal",
     "categoria": "Cama e banho",
-    "descricao": ""
+    "descricao": "Casaborda Atual, queen, percal 180 fios, 3 peças (edredom + 2 porta-travesseiros).",
+    "preco": 232.49,
+    "imagem": "img/edredom-casal.jpg",
+    "link": "https://www.magazineluiza.com.br/edredom-queen-algodao-percal-180-fios-03-pecas-quadriculado-atual-casaborda-enxovais/p/je6j43a18h/cm/cedt/"
   },
   {
     "id": "conjunto-de-cama-queen",
     "nome": "Conjunto de Cama Queen",
     "categoria": "Cama e banho",
-    "descricao": ""
+    "descricao": "Jogo de lençol Paris queen, percal 180 fios, 100% algodão, 3 peças, branco.",
+    "preco": 96.19,
+    "imagem": "img/conjunto-de-cama-queen.jpg",
+    "link": "https://www.webcontinental.com.br/jogo-cama-lencol-paris-queen-percal-180-fios-100-algodao-lese-bordada-3-pecas---branco-002937005855/p"
   },
   {
     "id": "grill",
     "nome": "Grill",
     "categoria": "Eletrodomésticos",
-    "descricao": ""
+    "descricao": "Oster Burguer OGRL500, 2 em 1 com estufa. Escolha a versão 110 V.",
+    "preco": 197.91,
+    "imagem": "img/grill.jpg",
+    "link": "https://www.magazineluiza.com.br/grill-eletrico-burguer-oster-2-em-1-com-estufa/p/fh64jjcga9/ep/epgr/"
   },
   {
     "id": "escorredor-de-loucas",
     "nome": "Escorredor de Louças",
     "categoria": "Cozinha",
-    "descricao": ""
+    "descricao": "Mor, escorredor de louças baixo para 9 pratos, preto.",
+    "preco": 91.0,
+    "imagem": "img/escorredor-de-loucas.jpg",
+    "link": "https://www.amazon.com.br/dp/B0DS6FXCG6"
   },
   {
     "id": "panos-de-prato",
     "nome": "Panos de Prato",
     "categoria": "Cozinha",
-    "descricao": ""
+    "descricao": "Teka Copa Chef Premium, 4 panos atoalhados, 100% algodão, 45 x 70 cm.",
+    "preco": 58.41,
+    "imagem": "img/panos-de-prato.jpg",
+    "link": "https://www.magazineluiza.com.br/kit-4-panos-de-prato-copa-chef-teka-premium-atoalhado-100-algodao-45x70cm/p/acj8g7hjk9/cm/cmpp/"
   },
   {
     "id": "tapetes",
     "nome": "Tapetes",
     "categoria": "Casa e decoração",
-    "descricao": ""
+    "descricao": "Tapete de tear artesanal, 100% algodão, 1,40 x 2,00 m.",
+    "preco": 140.65,
+    "imagem": "img/tapetes.jpg",
+    "link": "https://www.amazon.com.br/dp/B08XZNGNHR"
   },
   {
     "id": "pano-de-chao",
     "nome": "Pano de Chão",
     "categoria": "Limpeza e lavanderia",
-    "descricao": ""
+    "descricao": "Scotch-Brite (3M), Super Pano de Chão azul.",
+    "preco": 37.91,
+    "imagem": "img/pano-de-chao.jpg",
+    "link": "https://www.magazineluiza.com.br/super-pano-de-chao-scotch-brite-azul-3m/p/aa0h5h4cf2/me/pano/"
   }
 ]
