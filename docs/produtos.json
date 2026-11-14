@@ -61,7 +61,8 @@
     "descricao": "Kit Rebirth com 10 potes empilháveis: 2 de 2 L, 4 de 950 ml e 4 de 450 ml.",
     "preco": 79.9,
     "imagem": "img/potes-hermeticos.jpg",
-    "link": "https://shopee.com.br/product/528261467/49108107903"
+    "link": "https://shopee.com.br/product/528261467/49108107903",
+    "limite": 2
   },
   {
     "id": "espatula-de-silicone",
@@ -260,6 +261,7 @@
     "descricao": "Silicone com tampa e 4 divisórias de 250 ml para congelar porções.",
     "preco": 54.0,
     "imagem": "img/forma-de-silicone-4-divisorias.jpg",
-    "link": "https://shopee.com.br/product/832515478/58263775108"
+    "link": "https://shopee.com.br/product/832515478/58263775108",
+    "limite": 3
   }
 ]
