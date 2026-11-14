@@ -35,7 +35,7 @@
     return btoa(String.fromCharCode.apply(null, b)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
   }
   function minhaReserva(p) {
-    if (!p.repetivel) return estado.minhas[p.id] ? p.id : null;
+    if (limite(p) <= 1) return estado.minhas[p.id] ? p.id : null;
     var ids = Object.keys(estado.minhas).filter(function (k) { return k.indexOf(p.id + "#") === 0; });
     return ids.length ? ids[0] : null;
   }
@@ -44,7 +44,14 @@
 
   // Presentes "repetíveis" (várias pessoas podem escolher) nunca ficam travados:
   // cada escolha é registrada com um id próprio, no formato "<id>#<data>".
-  function reservado(p) { return !p.repetivel && estado.reservados.has(p.id); }
+  // "limite": quantas pessoas podem reservar o mesmo presente (padrão 1).
+  // "repetivel": true (formato antigo) = sem limite.
+  function limite(p) {
+    var l = parseInt(p.limite, 10);
+    if (l >= 1) return l;
+    return p.repetivel ? Infinity : 1;
+  }
+  function reservado(p) { return limite(p) > 1 ? vezes(p) >= limite(p) : estado.reservados.has(p.id); }
   function vezes(p) { var n = 0; estado.reservados.forEach(function (id) { if (id.indexOf(p.id + "#") === 0) n++; }); return n; }
 
   // ---------- textos do topo ----------
@@ -89,7 +96,7 @@
   }
 
   function cartao(p) {
-    var res = reservado(p);
+    var res = reservado(p), multi = limite(p) > 1, minha = minhaReserva(p);
     var ph = el("div", { class: "ph" });
     if (p.imagem) {
       var img = el("img", { src: p.imagem, alt: p.nome, loading: "lazy", referrerpolicy: "no-referrer" });
@@ -104,10 +111,12 @@
     var cb = el("div", { class: "cb" }, [el("h3", { text: p.nome })]);
     if (p.descricao) cb.appendChild(el("p", { text: p.descricao }));
     if (preco(p.preco)) cb.appendChild(el("div", { class: "price" }, [el("b", { text: preco(p.preco) }), el("span", { text: "valor de referência" })]));
-    if (p.repetivel) {
-      var n = vezes(p);
-      cb.appendChild(el("span", { class: "chip s multi" }, ["∞ Várias pessoas podem escolher" + (n ? " · " + n + (n === 1 ? " já escolheu" : " já escolheram") : "")]));
-      var minha = minhaReserva(p);
+    if (multi) {
+      var n = vezes(p), L = limite(p);
+      var txt = L === Infinity
+        ? "Várias pessoas podem escolher" + (n ? " · " + n + (n === 1 ? " já escolheu" : " já escolheram") : "")
+        : "Até " + L + " pessoas podem dar · " + n + " de " + L + " já " + (n === 1 ? "escolheu" : "escolheram");
+      cb.appendChild(el("span", { class: "chip s multi" }, [icone("users"), txt]));
       if (minha) {
         var desistir = el("button", { class: "link-acao", type: "button", text: "Cancelar minha escolha" });
         desistir.addEventListener("click", function () { abrirCancelar(p, minha); });
@@ -115,7 +124,8 @@
       }
     }
 
-    if (res && minhaReserva(p)) {
+    var podeReservar = !res && !(multi && minha);
+    if (!multi && res && minha) {
       var retirar = el("button", { class: "btn sec", type: "button" }, [icone("undo"), "Retirar reserva"]);
       retirar.addEventListener("click", function () { abrirCancelar(p, p.id); });
       cb.appendChild(el("div", { class: "acoes" }, [
@@ -126,19 +136,26 @@
         retirar
       ]));
     } else if (res) {
-      cb.appendChild(el("div", { class: "resbox" }, [
+      var titulo = multi ? (minha ? "Reservado por você e mais pessoas" : "Reservado por outras pessoas") : "Reservado por outra pessoa";
+      var sub = multi ? "Todas as " + limite(p) + " vagas já foram preenchidas" : "Este presente já foi escolhido";
+      cb.appendChild(el("div", { class: "resbox" + (minha ? " meu" : "") }, [
         el("span", { class: "ic" }, [icone("check")]),
-        el("div", null, [el("b", { text: "Reservado por outra pessoa" }), el("span", { text: "Este presente já foi escolhido" })])
+        el("div", null, [el("b", { text: titulo }), el("span", { text: sub })])
       ]));
     } else {
-      var b1 = el("button", { class: "btn pri", type: "button" }, [icone("gift"), "Reservar presente"]);
+      var filhos = [];
+      if (podeReservar) {
+        var b1 = el("button", { class: "btn pri", type: "button" }, [icone("gift"), "Reservar presente"]);
+        b1.addEventListener("click", function () { abrirReserva(p); });
+        filhos.push(b1);
+      }
       var b2 = el("button", { class: "btn sec", type: "button" }, [icone("qr"), "Contribuir via Pix"]);
-      b1.addEventListener("click", function () { abrirReserva(p); });
       b2.addEventListener("click", function () { abrirPix(p); });
-      cb.appendChild(el("div", { class: "acoes" }, [b1, b2]));
+      filhos.push(b2);
+      cb.appendChild(el("div", { class: "acoes" }, filhos));
     }
     var card = el("article", { class: "card" + (res ? " res" : "") }, [ph, cb]);
-    if (!res) {
+    if (podeReservar) {
       // Clicar em qualquer parte do cartão (foto incluída) abre a reserva.
       card.classList.add("clicavel");
       card.setAttribute("tabindex", "0");
@@ -283,9 +300,10 @@
     var f = ev.target, p = estado.atual, nome = f.nome.value.trim();
     if (!nome) { erro(f, "Conte pra gente o seu nome."); f.nome.focus(); return; }
     var bt = $("[data-enviar]", f); bt.disabled = true; erro(f, "");
-    var idEnvio = p.repetivel ? p.id + "#" + Date.now() : p.id;
+    var multi = limite(p) > 1;
+    var idEnvio = multi ? p.id + "#" + Date.now() : p.id;
     var codigo = novoCodigo();
-    api({ acao: "reservar", id: idEnvio, presente: p.nome, nome: nome, codigo: codigo })
+    api({ acao: "reservar", id: idEnvio, presente: p.nome, nome: nome, codigo: codigo, limite: multi && limite(p) !== Infinity ? limite(p) : undefined })
       .then(function (r) {
         if (!r || !r.ok) throw { codigo: (r && r.erro) || "falha" };
         lembrarNome(nome); estado.minhas[idEnvio] = codigo; salvarMinhas();
@@ -322,7 +340,7 @@
     cancelando = { p: p, id: idReserva };
     var f = $("#formCancelar");
     preencherItem($("[data-item]", f), p);
-    $("#mcTitulo").textContent = p.repetivel ? "Cancelar sua escolha?" : "Retirar reserva?";
+    $("#mcTitulo").textContent = limite(p) > 1 ? "Cancelar sua escolha?" : "Retirar reserva?";
     erro(f, "");
     $("#modalCancelar").showModal();
   }

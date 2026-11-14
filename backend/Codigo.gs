@@ -55,7 +55,7 @@ function doGet(e) {
 }
 
 // POST (corpo JSON em text/plain)
-//   { acao: "reservar", id, presente, nome, codigo }  -> reserva o presente
+//   { acao: "reservar", id, presente, nome, codigo, limite? }  -> reserva o presente
 //   { acao: "cancelar", id, codigo }                  -> retira a reserva (só quem reservou tem o código)
 //   { acao: "pix", id, presente, nome }               -> aviso de Pix enviado (não reserva)
 function doPost(e) {
@@ -78,6 +78,13 @@ function doPost(e) {
   try {
     if (acao === 'reservar') {
       if (reservados_().indexOf(id) >= 0) return json_({ ok: false, erro: 'ja_reservado' });
+      // Presente com limite de pessoas: o id chega como "<presente>#<data>".
+      var limite = parseInt(d.limite, 10);
+      if (id.indexOf('#') > 0 && limite >= 1) {
+        var base = id.split('#')[0] + '#';
+        var ocupadas = reservados_().filter(function (r) { return r.indexOf(base) === 0; }).length;
+        if (ocupadas >= Math.min(limite, 50)) return json_({ ok: false, erro: 'ja_reservado' });
+      }
       aba_().appendRow([new Date(), id, presente, nome, 'Reserva', 'sim', hash_(d.codigo)]);
     } else {
       aba_().appendRow([new Date(), id, presente, nome, 'Pix', 'não', '']);

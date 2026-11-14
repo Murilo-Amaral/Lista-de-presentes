@@ -51,7 +51,8 @@
     "descricao": "Electrolux, 4 potes de vidro herméticos com tampa de bambu.",
     "preco": 59.76,
     "imagem": "img/potes-hermeticos-de-vidro.jpg",
-    "link": "https://www.amazon.com.br/dp/B094S8TXCT"
+    "link": "https://www.amazon.com.br/dp/B094S8TXCT",
+    "limite": 3
   },
   {
     "id": "potes-hermeticos",
@@ -142,7 +143,7 @@
     "preco": 49.98,
     "imagem": "img/trilho-suico.jpg",
     "link": "https://www.amazon.com.br/dp/B0FP4HTVQD",
-    "repetivel": true
+    "limite": 4
   },
   {
     "id": "edredom-casal",
@@ -160,7 +161,8 @@
     "descricao": "Jogo de lençol Paris queen, percal 180 fios, 100% algodão, 3 peças, branco.",
     "preco": 96.19,
     "imagem": "img/conjunto-de-cama-queen.jpg",
-    "link": "https://www.webcontinental.com.br/jogo-cama-lencol-paris-queen-percal-180-fios-100-algodao-lese-bordada-3-pecas---branco-002937005855/p"
+    "link": "https://www.webcontinental.com.br/jogo-cama-lencol-paris-queen-percal-180-fios-100-algodao-lese-bordada-3-pecas---branco-002937005855/p",
+    "limite": 3
   },
   {
     "id": "grill",

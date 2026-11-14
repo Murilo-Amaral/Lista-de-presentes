@@ -230,3 +230,4 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .card.clicavel:hover .ph img{transform:scale(1.03)}
 .ph img{transition:transform .25s}
 @media (prefers-reduced-motion:reduce){.card.clicavel,.ph img{transition:none}.card.clicavel:hover{transform:none}.card.clicavel:hover .ph img{transform:none}}
+.chip.multi svg{width:13px;height:13px}

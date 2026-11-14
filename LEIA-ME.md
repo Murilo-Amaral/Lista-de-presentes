@@ -96,6 +96,8 @@ Se preferir editar você mesmo, cada presente em `docs/produtos.json` segue este
 
 - `id`: identificador único, sem espaços. **Não mude o id de um presente que já foi reservado**, senão a reserva se perde.
 - `preco`: opcional. Use ponto como separador decimal.
+- `categoria`: Cozinha, Eletrodomésticos, Cama e banho, Casa e decoração ou Limpeza e lavanderia.
+- `limite`: opcional. Quantas pessoas podem reservar o mesmo presente (padrão: 1). Ex.: `"limite": 3`.
 - Para remover um presente, apague o bloco dele.
 
 ## Estrutura

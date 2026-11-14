@@ -23,7 +23,7 @@ O usuário manda uma ou mais URLs de anúncio. Para cada uma:
    - Se já existir um item com o mesmo nome ou equivalente (ex.: "Micro-ondas", "Edredom Casal"), **complete esse item**: adicione imagem, link, preço e descrição, **mantendo o `id`**.
    - Senão, adicione um item novo no fim, com `id` em minúsculas, sem acento e com hífens (ex.: `jarra-de-agua`). O `id` precisa ser único.
    - **Nunca mude o `id` de um item existente**: as reservas são guardadas por `id`.
-   - Itens que várias pessoas podem dar levam `"repetivel": true`.
+   - **Limite de reservas**: por padrão, 1 pessoa por presente (não escreva nada). Se várias pessoas puderem dar o mesmo presente, use `"limite": N` (ex.: `"limite": 3`). Não mexa no `limite` de itens existentes sem pedido.
 5. Valide o JSON (`python3 -m json.tool docs/produtos.json`), faça o commit e o push para `claude/keen-johnson-072qfl`.
 6. Responda com uma tabela curta (nome, preço, se completou um item existente ou criou um novo) e lembre que o site atualiza em 1 ou 2 minutos.
 
