@@ -1,4 +1,4 @@
-# Lista de presentes — Nosso cantinho novo
+# Lista de presentes — Socorro, viramos donos de casa
 
 Site público da lista de presentes do chá de casa nova. Os convidados abrem o link, sem login e sem cadastro, e podem:
 

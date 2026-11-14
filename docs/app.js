@@ -34,7 +34,7 @@
 
   // ---------- textos do topo ----------
   function textos() {
-    var t = (CFG.titulo || "Nosso cantinho novo").trim();
+    var t = (CFG.titulo || "Socorro, viramos donos de casa").trim();
     var i = t.lastIndexOf(" ");
     var h1 = $("#titulo");
     if (i > 0) { h1.appendChild(document.createTextNode(t.slice(0, i + 1))); h1.appendChild(el("em", { text: t.slice(i + 1) })); }

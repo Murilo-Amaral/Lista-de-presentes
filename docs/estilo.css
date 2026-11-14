@@ -33,7 +33,7 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .hero{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;padding-top:40px;padding-bottom:8px}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--sage-d);background:var(--sage-l);border-radius:999px;padding:6px 12px}
 .eyebrow svg{width:13px;height:13px}
-.hero h1{font-size:clamp(38px,6vw,62px);line-height:1.04;font-weight:400;letter-spacing:-.015em;margin:14px 0 12px}
+.hero h1{text-wrap:balance;font-size:clamp(38px,6vw,62px);line-height:1.04;font-weight:400;letter-spacing:-.015em;margin:14px 0 12px}
 .hero h1 em{font-style:italic;color:var(--terra)}
 .lead{font-size:16px;line-height:1.65;color:var(--ink-2);max-width:580px}
 .how{width:360px;flex:none;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;box-shadow:var(--shadow)}
@@ -147,7 +147,7 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .orlbl{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--muted)}
 .orlbl:before,.orlbl:after{content:"";flex:1;height:1px;background:var(--line)}
 .keyrow{display:flex;gap:8px}
-.key{flex:1;min-width:0;height:44px;border-radius:12px;border:1px dashed var(--line-2);background:#FAF7F2;display:flex;align-items:center;padding:0 12px;font-size:13px;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.key{flex:1;min-width:0;height:44px;border-radius:12px;border:1px dashed var(--line-2);background:#FAF7F2;display:flex;align-items:center;padding:0 10px;font-size:12px;letter-spacing:-.01em;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .copy{height:44px;border-radius:12px;background:var(--sage-d);color:#fff;font-size:13px;font-weight:600;padding:0 14px;display:flex;align-items:center;gap:6px;white-space:nowrap}
 .copy svg{width:14px;height:14px}
 .link-copia{font-size:12.5px;color:var(--sage-d);text-decoration:underline;text-underline-offset:3px;align-self:flex-start}

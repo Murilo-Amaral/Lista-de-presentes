@@ -3,7 +3,7 @@
 // =====================================================================
 window.LISTA_CONFIG = {
   // Título principal. A última palavra aparece em destaque (itálico).
-  titulo: "Nosso cantinho novo",
+  titulo: "Socorro, viramos donos de casa",
 
   // Etiqueta pequena acima do título (ex.: "Chá de casa nova · 6 de dezembro").
   etiqueta: "Chá de casa nova",
@@ -15,9 +15,9 @@ window.LISTA_CONFIG = {
 
   // Dados do Pix. Enquanto "chave" estiver vazia, a área de Pix avisa que ainda não foi configurada.
   pix: {
-    chave: "",           // CPF, celular (+5511999999999), e-mail ou chave aleatória
-    nomeRecebedor: "",   // nome que aparece no app do banco (até 25 letras)
-    cidade: "",          // cidade do recebedor (até 15 letras)
+    chave: "e9256fb2-856f-470a-a146-8e4bbeb12d15",           // CPF, celular (+5511999999999), e-mail ou chave aleatória
+    nomeRecebedor: "Murilo Antonio do Amaral",   // nome que aparece no app do banco (até 25 letras)
+    cidade: "Ribeirão Preto",          // cidade do recebedor (até 15 letras)
     // Opcional: em vez de gerar o QR Code a partir da chave, use a imagem do QR do seu banco
     // (coloque o arquivo na pasta docs/img e escreva aqui, ex.: "img/qr-pix.png").
     imagemQr: "",
