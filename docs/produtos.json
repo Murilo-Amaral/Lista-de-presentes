@@ -110,7 +110,7 @@
   },
   {
     "id": "jarra-de-agua",
-    "nome": "Garrafas de Água de Vidro",
+    "nome": "Kit 4 Jarras de Vidro 1 L",
     "categoria": "Cozinha",
     "descricao": "Kit com 4 jarras de vidro de 1 litro.",
     "preco": 51.29,
@@ -128,7 +128,7 @@
   },
   {
     "id": "cortina",
-    "nome": "Cortina Blackout para Trilho Suíço 2,30 m",
+    "nome": "Cortina Blackout para Trilho Suíço 3 m",
     "categoria": "Casa e decoração",
     "descricao": "80% blackout, para trilho suíço, 3 m de largura em 2 partes de 1,50 m. Não acompanha trilho.",
     "preco": 149.69,
@@ -220,7 +220,7 @@
   },
   {
     "id": "kit-5-bowls-de-aluminio",
-    "nome": "Kit 5 Bowls de Alumínio",
+    "nome": "Kit 6 Bowls de Inox com Tampa",
     "categoria": "Cozinha",
     "descricao": "6 bowls de aço inox com tampas plásticas, empilháveis.",
     "preco": 103.45,
