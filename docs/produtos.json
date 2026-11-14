@@ -46,40 +46,32 @@
   },
   {
     "id": "potes-hermeticos-de-vidro",
-    "nome": "Potes Herméticos de Vidro",
+    "nome": "Kit 3 Potes Herméticos",
     "categoria": "Cozinha",
-    "descricao": "Electrolux, 4 potes de vidro herméticos com tampa de bambu.",
-    "preco": 59.76,
-    "imagem": "img/potes-hermeticos-de-vidro.jpg",
-    "link": "https://www.amazon.com.br/dp/B094S8TXCT",
+    "descricao": "",
+    "link": "https://shopee.com.br/product/1363781547/22299396635",
     "limite": 3
   },
   {
     "id": "potes-hermeticos",
     "nome": "Potes Herméticos",
     "categoria": "Cozinha",
-    "descricao": "Electrolux, 10 potes herméticos de plástico, livres de BPA.",
-    "preco": 68.91,
-    "imagem": "img/potes-hermeticos.jpg",
-    "link": "https://www.americanas.com.br/potes-hermeticos-electrolux-de-plastico-branco-retangular-com-10-unidades-1738690u7768fb88/p"
+    "descricao": "",
+    "link": "https://shopee.com.br/product/528261467/49108107903"
   },
   {
     "id": "espatula-de-silicone",
-    "nome": "Espátula de Silicone",
+    "nome": "Kit Utensílios de Silicone 10 Peças",
     "categoria": "Cozinha",
-    "descricao": "Oikos, espátula de silicone reta.",
-    "preco": 14.9,
-    "imagem": "img/espatula-de-silicone.jpg",
-    "link": "https://www.amazon.com.br/dp/B085M4N2W4"
+    "descricao": "",
+    "link": "https://shopee.com.br/product/1819539909/42484346166"
   },
   {
     "id": "lixeira-automatica-para-banheiro",
-    "nome": "Lixeira Automática para Banheiro",
+    "nome": "Lixeira Automática",
     "categoria": "Cama e banho",
-    "descricao": "Coza Press, 5 litros, preta: a tampa abre com um toque.",
-    "preco": 39.99,
-    "imagem": "img/lixeira-automatica-para-banheiro.jpg",
-    "link": "https://www.amazon.com.br/dp/B0779MSCLG"
+    "descricao": "",
+    "link": "https://shopee.com.br/product/1053212537/23698779418"
   },
   {
     "id": "cesto-de-roupa",
@@ -110,12 +102,10 @@
   },
   {
     "id": "jarra-de-agua",
-    "nome": "Jarra de Água",
+    "nome": "Garrafas de Água de Vidro",
     "categoria": "Cozinha",
-    "descricao": "Lyor, jarra de vidro de 1 litro com tampa.",
-    "preco": 32.39,
-    "imagem": "img/jarra-de-agua.jpg",
-    "link": "https://www.magazineluiza.com.br/jarra-vidro-com-tampa-de-plastico-branca-1-litro-suco-agua-lyor/p/ck073fjh46/ud/udjr/"
+    "descricao": "",
+    "link": "https://shopee.com.br/product/1363781547/22899195528"
   },
   {
     "id": "frigideira",
@@ -128,12 +118,10 @@
   },
   {
     "id": "cortina",
-    "nome": "Cortina",
+    "nome": "Cortina Blackout para Trilho Suíço 2,30 m",
     "categoria": "Casa e decoração",
-    "descricao": "Cortina em oxford para trilho suíço, 2 m de largura, branca.",
-    "preco": 122.95,
-    "imagem": "img/cortina.jpg",
-    "link": "https://www.magazineluiza.com.br/cortina-2-mts-sala-quarto-oxford-para-trilho-suisso-baratissima-branco-100-poliester-casa-show-enxovais/p/cch6cha496/cm/ctqu/"
+    "descricao": "",
+    "link": "https://shopee.com.br/product/1196520241/22898844989"
   },
   {
     "id": "trilho-suico",
@@ -208,5 +196,61 @@
     "preco": 37.91,
     "imagem": "img/pano-de-chao.jpg",
     "link": "https://www.magazineluiza.com.br/super-pano-de-chao-scotch-brite-azul-3m/p/aa0h5h4cf2/me/pano/"
+  },
+  {
+    "id": "pipoqueira-britania",
+    "nome": "Pipoqueira Britânia 127 V",
+    "categoria": "Eletrodomésticos",
+    "descricao": "",
+    "link": "https://shopee.com.br/product/811879342/23097346445"
+  },
+  {
+    "id": "kit-5-bowls-de-aluminio",
+    "nome": "Kit 5 Bowls de Alumínio",
+    "categoria": "Cozinha",
+    "descricao": "",
+    "link": "https://shopee.com.br/product/1854274538/58216123322"
+  },
+  {
+    "id": "panela-de-pressao-eletrica-rita-lobo",
+    "nome": "Panela de Pressão Elétrica Rita Lobo",
+    "categoria": "Eletrodomésticos",
+    "descricao": "",
+    "link": "https://shopee.com.br/product/1526836548/22693991409"
+  },
+  {
+    "id": "kit-5-potes-hermeticos",
+    "nome": "Kit 5 Potes Herméticos",
+    "categoria": "Cozinha",
+    "descricao": "",
+    "link": "https://shopee.com.br/product/1417910231/58261904419"
+  },
+  {
+    "id": "kit-6-pratos-de-sobremesa",
+    "nome": "Kit 6 Pratos de Sobremesa",
+    "categoria": "Cozinha",
+    "descricao": "",
+    "link": "https://shopee.com.br/product/1322528149/52918618715"
+  },
+  {
+    "id": "fouet-profissional",
+    "nome": "Fouet Profissional",
+    "categoria": "Cozinha",
+    "descricao": "",
+    "link": "https://shopee.com.br/product/1368874973/58261370550"
+  },
+  {
+    "id": "kit-4-formas-de-silicone-hexagonais",
+    "nome": "Kit 4 Formas de Silicone Hexagonais",
+    "categoria": "Cozinha",
+    "descricao": "",
+    "link": "https://shopee.com.br/product/1404820454/19099865976"
+  },
+  {
+    "id": "forma-de-silicone-4-divisorias",
+    "nome": "Forma de Silicone com 4 Divisórias",
+    "categoria": "Cozinha",
+    "descricao": "",
+    "link": "https://shopee.com.br/product/832515478/58263775108"
   }
 ]
