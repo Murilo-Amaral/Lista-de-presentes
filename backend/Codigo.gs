@@ -55,9 +55,10 @@ function doGet(e) {
 }
 
 // POST (corpo JSON em text/plain)
-//   { acao: "reservar", id, presente, nome, codigo, limite? }  -> reserva o presente
-//   { acao: "cancelar", id, codigo }                  -> retira a reserva (só quem reservou tem o código)
-//   { acao: "pix", id, presente, nome }               -> aviso de Pix enviado (não reserva)
+//   { acao: "reservar", id, presente, nome, codigo, limite? }            -> reserva o presente
+//   { acao: "pix", id, presente, nome, reservar: true, codigo, limite? }  -> aviso de Pix que também reserva o presente
+//   { acao: "pix", presente?, nome }                                      -> aviso de Pix sem reserva (valor livre)
+//   { acao: "cancelar", id, codigo }                                      -> retira a reserva (só quem reservou tem o código)
 function doPost(e) {
   var d;
   try { d = JSON.parse(e.postData.contents); } catch (err) { return json_({ ok: false, erro: 'dados_invalidos' }); }
@@ -70,35 +71,47 @@ function doPost(e) {
   var nome = limpa_(d.nome, 60);
   if (!nome) return json_({ ok: false, erro: 'sem_nome' });
   if (acao !== 'reservar' && acao !== 'pix') return json_({ ok: false, erro: 'acao_invalida' });
-  if (acao === 'reservar' && !id) return json_({ ok: false, erro: 'sem_presente' });
-  if (acao === 'reservar' && !codigoValido_(d.codigo)) return json_({ ok: false, erro: 'sem_codigo' });
 
+  var reserva = acao === 'reservar' || (acao === 'pix' && d.reservar === true);
+  if (reserva && !id) return json_({ ok: false, erro: 'sem_presente' });
+  if (reserva && !codigoValido_(d.codigo)) return json_({ ok: false, erro: 'sem_codigo' });
+
+  var jaReservado = false;
   var trava = LockService.getScriptLock();
   trava.waitLock(15000);
   try {
-    if (acao === 'reservar') {
-      if (reservados_().indexOf(id) >= 0) return json_({ ok: false, erro: 'ja_reservado' });
-      // Presente com limite de pessoas: o id chega como "<presente>#<data>".
-      var limite = parseInt(d.limite, 10);
-      if (id.indexOf('#') > 0 && limite >= 1) {
-        var base = id.split('#')[0] + '#';
-        var ocupadas = reservados_().filter(function (r) { return r.indexOf(base) === 0; }).length;
-        if (ocupadas >= Math.min(limite, 50)) return json_({ ok: false, erro: 'ja_reservado' });
-      }
-      aba_().appendRow([new Date(), id, presente, nome, 'Reserva', 'sim', hash_(d.codigo)]);
-    } else {
-      aba_().appendRow([new Date(), id, presente, nome, 'Pix', 'não', '']);
+    if (reserva && lotado_(id, d.limite)) {
+      // Reserva comum: recusa. Pix: o dinheiro já foi enviado, então registra o aviso mesmo assim, sem reservar.
+      if (acao === 'reservar') return json_({ ok: false, erro: 'ja_reservado' });
+      reserva = false;
+      jaReservado = true;
     }
+    aba_().appendRow([new Date(), id, presente, nome, acao === 'pix' ? 'Pix' : 'Reserva', reserva ? 'sim' : 'não', reserva ? hash_(d.codigo) : '']);
   } finally {
     trava.releaseLock();
   }
 
   var msg;
   if (acao === 'reservar') msg = '🎁 ' + nome + ' reservou: ' + presente;
+  else if (reserva) msg = '💸 ' + nome + ' enviou um Pix e reservou: ' + presente;
+  else if (jaReservado) msg = '💸 ' + nome + ' avisou que enviou um Pix para: ' + presente + ' (o presente já estava reservado)';
   else if (presente) msg = '💸 ' + nome + ' avisou que enviou um Pix para ajudar com: ' + presente;
   else msg = '💸 ' + nome + ' avisou que enviou um Pix de valor livre';
 
-  return json_({ ok: true, telegram: telegram_(msg) });
+  return json_({ ok: true, reservado: reserva, jaReservado: jaReservado, telegram: telegram_(msg) });
+}
+
+// true se o presente já tem dono (ou, com limite de pessoas, se todas as vagas foram preenchidas).
+// Presentes com limite chegam com id no formato "<presente>#<data>".
+function lotado_(id, limite) {
+  var ativos = reservados_();
+  if (ativos.indexOf(id) >= 0) return true;
+  var l = parseInt(limite, 10);
+  if (id.indexOf('#') > 0 && l >= 1) {
+    var base = id.split('#')[0] + '#';
+    return ativos.filter(function (r) { return r.indexOf(base) === 0; }).length >= Math.min(l, 50);
+  }
+  return false;
 }
 
 function codigoValido_(c) { return typeof c === 'string' && /^[A-Za-z0-9_-]{16,80}$/.test(c); }

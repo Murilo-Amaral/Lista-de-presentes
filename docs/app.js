@@ -276,6 +276,10 @@
       if (CFG.pix.imagemQr) { var q = $("#qr"); q.textContent = ""; q.appendChild(el("img", { src: CFG.pix.imagemQr, alt: "QR Code Pix" })); }
       else desenharQr(codigoPix());
     }
+    // Avisar o Pix de um presente disponível também reserva o presente para quem enviou.
+    estado.pixReserva = !!(p && !reservado(p) && !(limite(p) > 1 && minhaReserva(p)));
+    $("#mpNotaReserva").hidden = !estado.pixReserva;
+    $("#mpEnviarTxt").textContent = estado.pixReserva ? "Avisar que enviei e reservar" : "Avisar que enviei";
     f.nome.value = nomeLembrado();
     erro(f, "");
     m.showModal();
@@ -323,12 +327,29 @@
     var f = ev.target, p = estado.atual, nome = f.nome.value.trim();
     if (!nome) { erro(f, "Conte pra gente o seu nome."); f.nome.focus(); return; }
     var bt = $("[data-enviar]", f); bt.disabled = true; erro(f, "");
-    api({ acao: "pix", id: p ? p.id : "", presente: p ? p.nome : "", nome: nome })
+    var dados = { acao: "pix", id: p ? p.id : "", presente: p ? p.nome : "", nome: nome };
+    if (estado.pixReserva) {
+      var multi = limite(p) > 1;
+      dados.id = multi ? p.id + "#" + Date.now() : p.id;
+      dados.reservar = true;
+      dados.codigo = novoCodigo();
+      if (multi && limite(p) !== Infinity) dados.limite = limite(p);
+    }
+    api(dados)
       .then(function (r) {
         if (!r || !r.ok) throw { codigo: (r && r.erro) || "falha" };
         lembrarNome(nome);
         $("#modalPix").close();
-        toast("Obrigado pelo Pix!", "Os anfitriões vão adorar saber.", r.telegram);
+        if (dados.reservar && r.reservado) {
+          estado.minhas[dados.id] = dados.codigo; salvarMinhas();
+          estado.reservados.add(dados.id); render();
+          toast("Reservado com sucesso", "Obrigado pelo Pix! O presente ficou reservado para você.", r.telegram);
+        } else if (r.jaReservado) {
+          toast("Obrigado pelo Pix!", "Os anfitriões foram avisados. Este presente já tinha sido reservado por outra pessoa.", r.telegram);
+          carregarReservas();
+        } else {
+          toast("Obrigado pelo Pix!", "Os anfitriões vão adorar saber.", r.telegram);
+        }
       })
       .catch(function (e) { erro(f, mensagemErro(e)); })
       .then(function () { bt.disabled = false; });

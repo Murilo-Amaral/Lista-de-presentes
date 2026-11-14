@@ -165,8 +165,9 @@
         <label class="campo">Seu nome
           <input type="text" name="nome" maxlength="60" autocomplete="name" placeholder="Como os anfitriões te chamam">
         </label>
+        <p class="note" id="mpNotaReserva" hidden><svg class="i"><use href="#i-info"/></svg>Ao avisar, este presente fica reservado para você e aparece como "Tem dono" para os outros convidados.</p>
         <p class="erro" data-erro hidden></p>
-        <button class="btn sage grande" type="submit" data-enviar><svg class="i"><use href="#i-send"/></svg>Avisar que enviei</button>
+        <button class="btn sage grande" type="submit" data-enviar><svg class="i"><use href="#i-send"/></svg><span id="mpEnviarTxt">Avisar que enviei</span></button>
       </div>
     </div>
     <div class="pix-off" data-pix-off hidden>
