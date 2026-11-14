@@ -1,12 +1,10 @@
 [
   {
     "id": "jogo-de-facas",
-    "nome": "Jogo de Facas",
+    "nome": "Jogo de Facas DOMEZ 5 Peças",
     "categoria": "Cozinha",
-    "descricao": "",
-    "preco": 67.9,
-    "imagem": "https://m.media-amazon.com/images/I/71EVjVGyw8L._AC_SY355_.jpg",
-    "link": "https://www.amazon.com.br/dp/B01HOJHOLW"
+    "descricao": "Aço inox 4Cr13, monobloco, fio de 15°: chef, santoku, pão, utilitária e descascar.",
+    "link": "https://www.amazon.com.br/dp/B0G5H4KL59"
   },
   {
     "id": "panela-de-pressao-brinox",
@@ -119,12 +117,10 @@
   },
   {
     "id": "frigideira",
-    "nome": "Frigideira",
+    "nome": "Conjunto de Frigideiras de Ferro Fundido 3 Peças",
     "categoria": "Cozinha",
-    "descricao": "Tramontina Loreto, funda, 24 cm, antiaderente.",
-    "preco": 44.9,
-    "imagem": "img/frigideira.jpg",
-    "link": "https://www.amazon.com.br/dp/B09Y7GM4KY"
+    "descricao": "Frigideiras de ferro fundido, 3 peças.",
+    "link": "https://www.mercadolivre.com.br/conjunto-de-frigideiras-de-ferro-fundido-tres-pecas/up/MLBU3921587763"
   },
   {
     "id": "cortina",
