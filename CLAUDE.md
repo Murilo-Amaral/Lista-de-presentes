@@ -16,6 +16,7 @@ O usuário manda uma ou mais URLs de anúncio. Para cada uma:
    - **descricao**: uma frase curta em português (material, tamanho, cor ou capacidade). Não invente: use só o que está no anúncio;
    - **preco**: número com ponto decimal (ex.: `189.9`). Use o preço à vista mostrado. Se não houver, omita o campo;
    - **imagem**: URL da foto principal do produto, em alta resolução (meta `og:image` ou JSON-LD `image`).
+   - **categoria**: uma destas (use exatamente o texto): `Cozinha`, `Eletrodomésticos`, `Cama e banho`, `Casa e decoração`, `Limpeza e lavanderia`. Só crie uma categoria nova se nenhuma servir.
 2. **Salve a foto no repositório**: baixe para `docs/img/<id>.<ext>` e use `"imagem": "img/<id>.<ext>"`. Se não for possível baixar, use a URL externa da foto.
 3. **Link limpo**: remova parâmetros de rastreamento e afiliado (`tag=`, `utm_*`, `ref=` etc.). Na Amazon, use `https://www.amazon.com.br/dp/<ASIN>`.
 4. **Edite `docs/produtos.json`**:
@@ -32,6 +33,7 @@ Formato de cada item:
 {
   "id": "panela-de-pressao-brinox",
   "nome": "Panela de Pressão Brinox",
+  "categoria": "Cozinha",
   "descricao": "Alumínio com revestimento antiaderente, 4,2 litros.",
   "preco": 192.9,
   "imagem": "img/panela-de-pressao-brinox.jpg",

@@ -2,7 +2,7 @@
   "use strict";
 
   var CFG = window.LISTA_CONFIG || {};
-  var estado = { produtos: [], reservados: new Set(), minhas: lerMinhas(), filtro: "todos", atual: null, backendOk: null };
+  var estado = { produtos: [], reservados: new Set(), minhas: lerMinhas(), filtro: "todos", busca: "", categoria: "", valor: "", ordem: "", atual: null, backendOk: null };
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
@@ -145,13 +145,65 @@
     var total = estado.produtos.length;
     var livres = estado.produtos.filter(function (p) { return !reservado(p); }).length;
     $("#contagem").textContent = total ? (livres === 1 ? "1 de " + total + " ainda disponível" : livres + " de " + total + " ainda disponíveis") : "";
+    var termos = normaliza(estado.busca).split(/\s+/).filter(Boolean);
+    var faixa = estado.valor ? estado.valor.split("-").map(function (x) { return x === "" ? null : Number(x); }) : null;
     var lista = estado.produtos.filter(function (p) {
       var r = reservado(p);
-      return estado.filtro === "todos" || (estado.filtro === "reservados" ? r : !r);
+      if (estado.filtro !== "todos" && (estado.filtro === "reservados" ? !r : r)) return false;
+      if (estado.categoria && p.categoria !== estado.categoria) return false;
+      if (faixa) {
+        var v = Number(p.preco);
+        if (!p.preco || isNaN(v)) return false;
+        if (faixa[0] !== null && v < faixa[0]) return false;
+        if (faixa[1] !== null && v > faixa[1]) return false;
+      }
+      if (termos.length) {
+        var alvo = normaliza([p.nome, p.descricao, p.categoria].join(" "));
+        if (!termos.every(function (t) { return alvo.indexOf(t) >= 0; })) return false;
+      }
+      return true;
     });
+    if (estado.ordem) {
+      var pr = function (p) { var v = Number(p.preco); return p.preco && !isNaN(v) ? v : null; };
+      lista = lista.slice().sort(function (a, b) {
+        if (estado.ordem === "az") return a.nome.localeCompare(b.nome, "pt-BR");
+        var x = pr(a), y = pr(b);
+        if (x === null && y === null) return 0;
+        if (x === null) return 1;
+        if (y === null) return -1;
+        return estado.ordem === "menor" ? x - y : y - x;
+      });
+    }
+    var refinado = !!(termos.length || estado.categoria || estado.valor);
+    if (refinado && total) $("#contagem").textContent = lista.length === 1 ? "1 encontrado" : lista.length + " encontrados";
     lista.forEach(function (p) { g.appendChild(cartao(p)); });
     $("#vazio").hidden = total > 0;
-    if (total > 0 && lista.length === 0) g.appendChild(el("p", { class: "vazio", text: estado.filtro === "reservados" ? "Nenhum presente reservado ainda." : "Todos os presentes já têm dono. Que tal contribuir via Pix?" }));
+    if (total > 0 && lista.length === 0) {
+      var msg = refinado ? "Nenhum presente encontrado com esses filtros." : estado.filtro === "reservados" ? "Nenhum presente reservado ainda." : "Todos os presentes já têm dono. Que tal contribuir via Pix?";
+      var caixa = el("div", { class: "vazio" }, [el("span", { text: msg })]);
+      if (refinado) {
+        var lp = el("button", { class: "btn claro", type: "button", text: "Limpar filtros" });
+        lp.addEventListener("click", limparFiltros);
+        caixa.appendChild(lp);
+      }
+      g.appendChild(caixa);
+    }
+  }
+
+  function normaliza(t) { return (t || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim(); }
+  function limparFiltros() {
+    estado.busca = estado.categoria = estado.valor = "";
+    $("#busca").value = ""; $("#selCategoria").value = ""; $("#selValor").value = "";
+    $("#limparBusca").hidden = true;
+    render();
+  }
+  function montarCategorias() {
+    var cats = [];
+    estado.produtos.forEach(function (p) { if (p.categoria && cats.indexOf(p.categoria) < 0) cats.push(p.categoria); });
+    cats.sort(function (a, b) { return a.localeCompare(b, "pt-BR"); });
+    var sel = $("#selCategoria");
+    cats.forEach(function (c) { sel.appendChild(el("option", { value: c, text: c })); });
+    $("#selCategoriaWrap").hidden = cats.length === 0;
   }
 
   // ---------- modais ----------
@@ -338,6 +390,16 @@
       render();
     });
   });
+  var tBusca;
+  $("#busca").addEventListener("input", function () {
+    var v = this.value; $("#limparBusca").hidden = !v;
+    clearTimeout(tBusca); tBusca = setTimeout(function () { estado.busca = v; render(); }, 120);
+  });
+  $("#limparBusca").addEventListener("click", function () { $("#busca").value = ""; this.hidden = true; estado.busca = ""; render(); $("#busca").focus(); });
+  $("#selCategoria").addEventListener("change", function () { estado.categoria = this.value; render(); });
+  $("#selValor").addEventListener("change", function () { estado.valor = this.value; render(); });
+  $("#selOrdem").addEventListener("change", function () { estado.ordem = this.value; render(); });
+
   $("#btnCompartilhar").addEventListener("click", function () {
     var url = location.href.split("#")[0];
     if (navigator.share) navigator.share({ title: document.title, text: "Nossa lista de presentes do chá de casa nova", url: url }).catch(function () {});
@@ -346,7 +408,7 @@
 
   // ---------- início ----------
   textos();
-  carregarProdutos().then(function () { render(); return carregarReservas(); });
+  carregarProdutos().then(function () { montarCategorias(); render(); return carregarReservas(); });
   document.addEventListener("visibilitychange", function () { if (!document.hidden && estado.backendOk) carregarReservas(); });
   setInterval(function () { if (!document.hidden && estado.backendOk) carregarReservas(); }, 60000);
 })();

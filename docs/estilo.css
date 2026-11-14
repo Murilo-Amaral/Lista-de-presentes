@@ -176,6 +176,21 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .toast .x{background:transparent;width:24px;height:24px}
 @keyframes sobe{from{transform:translateY(12px);opacity:0}}
 
+/* busca e filtros */
+.busca{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;margin:-2px 0 18px}
+.lupa{flex:1 1 280px;position:relative;display:flex;align-items:center}
+.lupa>svg{position:absolute;left:14px;width:18px;height:18px;color:var(--muted);pointer-events:none}
+.lupa input{width:100%;height:44px;border-radius:12px;border:1px solid var(--line-2);background:var(--surface);padding:0 40px 0 42px;font-size:15px}
+.lupa input::-webkit-search-cancel-button{display:none}
+.lupa input:focus{outline:none;border-color:var(--sage-d);box-shadow:0 0 0 3px rgba(86,102,75,.15)}
+.limpar-busca{position:absolute;right:8px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;color:var(--muted)}
+.limpar-busca svg{width:14px;height:14px}
+.selects{display:flex;gap:8px;flex-wrap:wrap}
+.sel{display:flex;flex-direction:column;gap:4px;font-size:11.5px;font-weight:600;color:var(--muted);letter-spacing:.02em}
+.sel select{appearance:none;-webkit-appearance:none;height:44px;border-radius:12px;border:1px solid var(--line-2);background:var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237D776D' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center/14px;padding:0 34px 0 12px;font-size:14px;font-weight:500;color:var(--ink);min-width:150px;cursor:pointer}
+.sel select:focus{outline:none;border-color:var(--sage-d);box-shadow:0 0 0 3px rgba(86,102,75,.15)}
+.vazio .btn{width:auto;padding:0 18px;margin-top:8px}
+
 /* responsivo */
 @media (max-width:900px){
   .hero{flex-direction:column;gap:24px;padding-top:28px}
@@ -187,6 +202,10 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stro
   .share span{display:none}
   .share{padding:8px 10px}
   .grid{grid-template-columns:1fr;gap:14px}
+  .busca{gap:10px}
+  .lupa{flex-basis:100%}
+  .selects{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+  .sel select{min-width:0;width:100%;font-size:13px;padding:0 26px 0 10px;background-position:right 8px center}
   .ph{aspect-ratio:16/10}
   .pix-faixa{flex-direction:column;align-items:stretch;margin-left:16px;margin-right:16px;padding:18px}
   .pix-faixa .btn{width:100%}
@@ -205,3 +224,4 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .txt{font-size:14px;line-height:1.5;color:var(--ink-2)}
 .duplo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .btn.claro{background:#F3EFE8;color:var(--ink)}
+.grid>.vazio{grid-column:1/-1}

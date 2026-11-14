@@ -2,6 +2,7 @@
   {
     "id": "jogo-de-facas",
     "nome": "Jogo de Facas",
+    "categoria": "Cozinha",
     "descricao": "",
     "preco": 67.9,
     "imagem": "https://m.media-amazon.com/images/I/71EVjVGyw8L._AC_SY355_.jpg",
@@ -10,6 +11,7 @@
   {
     "id": "panela-de-pressao-brinox",
     "nome": "Panela de Pressão Brinox",
+    "categoria": "Cozinha",
     "descricao": "",
     "preco": 192.9,
     "imagem": "https://m.media-amazon.com/images/I/515ty+4I4BL._AC_SY355_.jpg",
@@ -18,6 +20,7 @@
   {
     "id": "forno-eletrico-de-bancada-mueller-mfb50f",
     "nome": "Forno Elétrico de Bancada Mueller MFB50F",
+    "categoria": "Eletrodomésticos",
     "descricao": "",
     "preco": 693.7,
     "imagem": "https://loja.mueller.ind.br/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/s/e/sem_t_tulo-3_1_8.jpg",
@@ -26,102 +29,122 @@
   {
     "id": "tabua-de-madeira",
     "nome": "Tábua de Madeira",
+    "categoria": "Cozinha",
     "descricao": ""
   },
   {
     "id": "aspirador-de-po-vertical",
     "nome": "Aspirador de Pó Vertical",
+    "categoria": "Eletrodomésticos",
     "descricao": ""
   },
   {
     "id": "potes-hermeticos-de-vidro",
     "nome": "Potes Herméticos de Vidro",
+    "categoria": "Cozinha",
     "descricao": ""
   },
   {
     "id": "potes-hermeticos",
     "nome": "Potes Herméticos",
+    "categoria": "Cozinha",
     "descricao": ""
   },
   {
     "id": "espatula-de-silicone",
     "nome": "Espátula de Silicone",
+    "categoria": "Cozinha",
     "descricao": ""
   },
   {
     "id": "lixeira-automatica-para-banheiro",
     "nome": "Lixeira Automática para Banheiro",
+    "categoria": "Cama e banho",
     "descricao": ""
   },
   {
     "id": "cesto-de-roupa",
     "nome": "Cesto de Roupa",
+    "categoria": "Limpeza e lavanderia",
     "descricao": ""
   },
   {
     "id": "conjunto-de-panela-de-inox-fundo-triplo",
     "nome": "Conjunto de Panela de Inox Fundo Triplo",
+    "categoria": "Cozinha",
     "descricao": ""
   },
   {
     "id": "micro-ondas",
     "nome": "Micro-ondas",
+    "categoria": "Eletrodomésticos",
     "descricao": ""
   },
   {
     "id": "jarra-de-agua",
     "nome": "Jarra de Água",
+    "categoria": "Cozinha",
     "descricao": ""
   },
   {
     "id": "frigideira",
     "nome": "Frigideira",
+    "categoria": "Cozinha",
     "descricao": ""
   },
   {
     "id": "cortina",
     "nome": "Cortina",
+    "categoria": "Casa e decoração",
     "descricao": ""
   },
   {
     "id": "trilho-suico",
     "nome": "Trilho Suiço",
+    "categoria": "Casa e decoração",
     "descricao": "",
     "repetivel": true
   },
   {
     "id": "edredom-casal",
     "nome": "Edredom Casal",
+    "categoria": "Cama e banho",
     "descricao": ""
   },
   {
     "id": "conjunto-de-cama-queen",
     "nome": "Conjunto de Cama Queen",
+    "categoria": "Cama e banho",
     "descricao": ""
   },
   {
     "id": "grill",
     "nome": "Grill",
+    "categoria": "Eletrodomésticos",
     "descricao": ""
   },
   {
     "id": "escorredor-de-loucas",
     "nome": "Escorredor de Louças",
+    "categoria": "Cozinha",
     "descricao": ""
   },
   {
     "id": "panos-de-prato",
     "nome": "Panos de Prato",
+    "categoria": "Cozinha",
     "descricao": ""
   },
   {
     "id": "tapetes",
     "nome": "Tapetes",
+    "categoria": "Casa e decoração",
     "descricao": ""
   },
   {
     "id": "pano-de-chao",
     "nome": "Pano de Chão",
+    "categoria": "Limpeza e lavanderia",
     "descricao": ""
   }
 ]
