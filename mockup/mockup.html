@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Nosso cantinho novo — Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&display=block" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F4EEE4;
+    --cream:#FBF7F0;
+    --surface:#FFFDF9;
+    --line:#ECE4D7;
+    --line-2:#E2D8C8;
+    --ink:#2D2C29;
+    --ink-2:#55524C;
+    --muted:#8A847A;
+    --sage:#8C9C7E;
+    --sage-d:#56664B;
+    --sage-l:#E8EDE1;
+    --sage-ll:#F2F5ED;
+    --terra:#B4613F;
+    --terra-d:#9C5133;
+    --terra-l:#F6E6DC;
+    --shadow:0 1px 2px rgba(60,45,30,.04),0 6px 18px rgba(60,45,30,.05);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1600px;height:1000px;overflow:hidden}
+  body{
+    font-family:Inter,system-ui,sans-serif;color:var(--ink);
+    background:
+      radial-gradient(900px 600px at 85% 20%, #EAEDE2 0%, rgba(234,237,226,0) 70%),
+      radial-gradient(800px 500px at 10% 100%, #F1E4D8 0%, rgba(241,228,216,0) 70%),
+      var(--bg);
+    -webkit-font-smoothing:antialiased;
+    font-feature-settings:"cv11","ss01";
+    position:relative;
+  }
+  .serif{font-family:Fraunces,Georgia,serif;font-variation-settings:"SOFT" 100}
+  svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+  /* ---------- presentation caption ---------- */
+  .caption{position:absolute;left:44px;top:22px;right:44px;display:flex;align-items:center;justify-content:space-between;color:var(--ink-2)}
+  .caption .t{font-size:13px;font-weight:600;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
+  .caption .t .dot{width:6px;height:6px;border-radius:50%;background:var(--terra)}
+  .caption .t span.m{font-weight:400;color:var(--muted)}
+  .caption .legend{display:flex;gap:18px;font-size:12px;color:var(--muted)}
+  .caption .legend b{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:0}
+
+  /* ---------- desktop window ---------- */
+  .desk{position:absolute;left:40px;top:58px;width:1136px;height:910px;background:var(--cream);border-radius:14px;overflow:hidden;
+    box-shadow:0 0 0 1px rgba(70,55,35,.08),0 30px 60px -20px rgba(70,55,35,.18),0 10px 24px -12px rgba(70,55,35,.10)}
+  .chrome{height:42px;background:#F1EBE1;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 16px;gap:14px}
+  .chrome .dots{display:flex;gap:7px}
+  .chrome .dots i{width:11px;height:11px;border-radius:50%;background:#DCD3C5;display:block}
+  .chrome .url{margin:0 auto;width:420px;height:26px;border-radius:8px;background:#FBF8F3;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:7px;font-size:12px;color:var(--muted)}
+  .chrome .url svg{width:12px;height:12px}
+  .chrome .sp{width:47px}
+
+  .nav{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;border-bottom:1px solid var(--line);background:var(--cream)}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14.5px}
+  .brand .mk{width:32px;height:32px;border-radius:10px;background:var(--sage-l);color:var(--sage-d);display:grid;place-items:center}
+  .nav .links{display:flex;align-items:center;gap:30px;font-size:13.5px;color:var(--ink-2)}
+  .nav .links a.on{color:var(--ink);font-weight:600;position:relative}
+  .nav .links a.on:after{content:"";position:absolute;left:0;right:0;bottom:-23px;height:2px;background:var(--terra);border-radius:2px}
+  .nav .share{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--ink);border:1px solid var(--line-2);border-radius:999px;padding:8px 14px;background:var(--surface)}
+
+  .page{padding:24px 48px 0}
+  .hero{display:flex;justify-content:space-between;align-items:flex-start;gap:40px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--sage-d);background:var(--sage-l);border-radius:999px;padding:6px 12px}
+  .hero h1{font-size:58px;line-height:1.02;font-weight:400;letter-spacing:-.015em;margin:14px 0 12px;color:var(--ink)}
+  .hero h1 em{font-style:italic;color:var(--terra)}
+  .hero p.lead{font-size:15.5px;line-height:1.6;color:var(--ink-2);max-width:560px}
+
+  .how{width:356px;flex:none;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow)}
+  .how h4{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .step{display:flex;gap:12px;align-items:flex-start;position:relative;padding-bottom:12px}
+  .step:last-child{padding-bottom:0}
+  .step .n{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:600;background:var(--sage-l);color:var(--sage-d);flex:none;position:relative;z-index:1}
+  .step:not(:last-child):before{content:"";position:absolute;left:11.5px;top:24px;bottom:0;width:1px;background:var(--line-2)}
+  .step .tx{font-size:13px;line-height:1.4;color:var(--ink-2);padding-top:3px}
+  .step .tx b{color:var(--ink);font-weight:600}
+  .step .or{display:flex;gap:6px;margin-top:6px}
+  .chip{white-space:nowrap;display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:500;border-radius:999px;padding:3px 9px}
+  .chip.t{background:var(--terra-l);color:var(--terra-d)}
+  .chip.s{background:var(--sage-l);color:var(--sage-d)}
+  .chip svg{width:12px;height:12px}
+
+  .sechead{display:flex;align-items:center;justify-content:space-between;margin:22px 0 14px}
+  .sechead h2{font-size:20px;font-weight:600;letter-spacing:-.01em}
+  .sechead h2 small{font-size:13px;font-weight:400;color:var(--muted);margin-left:10px;letter-spacing:0}
+  .filters{display:flex;gap:6px}
+  .filters span{font-size:12.5px;padding:6px 12px;border-radius:999px;color:var(--ink-2);border:1px solid var(--line)}
+  .filters span.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+  .body{display:flex;gap:24px;align-items:flex-start}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;flex:1}
+
+  /* ---------- product card ---------- */
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);position:relative}
+  .card.sel{border-color:var(--sage);box-shadow:0 0 0 3px rgba(140,156,126,.22),var(--shadow)}
+  .ph{height:232px;position:relative;display:grid;place-items:center;overflow:hidden}
+  .ph svg.prod{width:100%;height:100%}
+  .imp{position:absolute;left:10px;bottom:10px;display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:500;color:var(--ink-2);background:rgba(255,253,249,.88);backdrop-filter:blur(4px);border:1px solid rgba(0,0,0,.05);border-radius:999px;padding:4px 8px 4px 7px}
+  .imp svg{width:11px;height:11px}
+  .badge{position:absolute;left:10px;top:10px;display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;border-radius:999px;padding:5px 10px}
+  .badge.av{background:rgba(255,253,249,.92);color:var(--sage-d)}
+  .badge.av i{width:6px;height:6px;border-radius:50%;background:#6E8A5C;display:block}
+  .badge.own{background:var(--ink);color:#fff}
+  .badge svg{width:12px;height:12px}
+  .card.res .ph svg.prod{filter:grayscale(.55) opacity(.6)}
+  .card.res .ph{background:#EEEAE3 !important}
+  .cb{padding:14px 16px 16px}
+  .cb h3{font-size:14.5px;font-weight:600;line-height:1.3;letter-spacing:-.005em}
+  .cb p{font-size:12.5px;line-height:1.45;color:var(--muted);margin-top:4px;min-height:36px}
+  .price{display:flex;align-items:baseline;gap:6px;margin:10px 0 12px}
+  .price b{font-size:15px;font-weight:600}
+  .price span{font-size:11.5px;color:var(--muted)}
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;height:40px;border-radius:11px;font-size:13.5px;font-weight:600;width:100%}
+  .btn.pri{background:var(--terra);color:#fff}
+  .btn.sec{background:transparent;color:var(--sage-d);height:30px;font-weight:500;font-size:12.5px;margin-top:4px}
+  .btn svg{width:15px;height:15px}
+  .resbox{border-radius:11px;background:#F3EFE8;border:1px dashed var(--line-2);padding:10px 10px;display:flex;gap:8px;align-items:center}
+  .resbox .ic{width:24px;height:24px;border-radius:50%;background:#E7E1D7;color:var(--ink-2);display:grid;place-items:center;flex:none}
+  .resbox b{display:block;font-size:12.5px;font-weight:600;color:var(--ink)}
+  .resbox span{font-size:11.5px;color:var(--muted)}
+  .card.res .cb h3{color:var(--ink-2)}
+  .card.res .price b{color:var(--muted)}
+
+  /* ---------- Pix panel ---------- */
+  .pix{width:318px;flex:none;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 2px 4px rgba(60,45,30,.04),0 16px 34px -10px rgba(60,45,30,.14);padding:18px 18px 16px}
+  .pix .top{display:flex;justify-content:space-between;align-items:center}
+  .pix .top h4{font-size:15px;font-weight:600}
+  .pix .top .x{width:26px;height:26px;border-radius:50%;background:#F3EFE8;display:grid;place-items:center;color:var(--muted)}
+  .pix .item{display:flex;align-items:center;gap:10px;margin:10px 0 12px;padding:8px;border-radius:12px;background:#F7F3EC}
+  .pix .item .th{width:40px;height:40px;border-radius:9px;background:#F1EEE9;overflow:hidden;flex:none}
+  .pix .item .th svg{width:100%;height:100%}
+  .pix .item b{display:block;font-size:13px;font-weight:600}
+  .pix .item span{font-size:11.5px;color:var(--muted)}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .opt{border:1px solid var(--line-2);border-radius:12px;padding:10px 10px 10px;position:relative}
+  .opt .oi{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;margin-bottom:7px}
+  .opt b{display:block;white-space:nowrap;font-size:12px;font-weight:600;line-height:1.25}
+  .opt span{display:block;font-size:11px;color:var(--muted);margin-top:2px;line-height:1.3}
+  .opt.a .oi{background:var(--terra-l);color:var(--terra-d)}
+  .opt.b{border-color:var(--sage);background:var(--sage-ll);box-shadow:0 0 0 2px rgba(140,156,126,.18)}
+  .opt.b .oi{background:var(--sage);color:#fff}
+  .opt .radio{position:absolute;right:9px;top:9px;width:14px;height:14px;border-radius:50%;border:1.5px solid var(--line-2);background:#fff}
+  .opt.b .radio{border-color:var(--sage-d);background:radial-gradient(circle,var(--sage-d) 0 3.5px,#fff 4px)}
+  .qrwrap{margin:12px 0 8px;display:flex;gap:14px;align-items:center}
+  .qr{width:122px;height:122px;border-radius:12px;background:#fff;border:1px solid var(--line);padding:8px;position:relative;flex:none}
+  .qr canvas{width:104px;height:104px;display:block;opacity:.85}
+  .qr .demo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-12deg);background:var(--terra);color:#fff;font-size:10px;font-weight:700;letter-spacing:.1em;padding:3px 7px;border-radius:5px;box-shadow:0 0 0 3px #fff}
+  .qrtx b{display:block;font-size:13px;font-weight:600;margin-bottom:4px}
+  .qrtx span{font-size:11.5px;line-height:1.45;color:var(--muted);display:block}
+  .orlbl{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted);margin:4px 0 8px}
+  .orlbl:before,.orlbl:after{content:"";flex:1;height:1px;background:var(--line)}
+  .keyrow{display:flex;gap:8px}
+  .key{flex:1;height:40px;border-radius:11px;border:1px dashed var(--line-2);background:#FAF7F2;display:flex;align-items:center;padding:0 11px;font-size:12px;color:var(--ink-2);font-family:"Inter";letter-spacing:.01em;white-space:nowrap;overflow:hidden}
+  .copy{height:40px;border-radius:11px;background:var(--sage-d);color:#fff;font-size:12.5px;font-weight:600;padding:0 13px;display:flex;align-items:center;gap:6px}
+  .copy svg{width:14px;height:14px}
+  .note{display:flex;gap:7px;align-items:flex-start;font-size:11px;line-height:1.4;color:var(--muted);margin-top:11px}
+  .note svg{width:13px;height:13px;margin-top:1px}
+
+  /* ---------- phone ---------- */
+  .phone{position:absolute;left:1222px;top:126px;width:346px;height:742px;border-radius:54px;background:#2A2926;padding:10px;
+    box-shadow:0 0 0 1.5px #474540 inset,0 30px 60px -18px rgba(70,55,35,.30),0 12px 26px -12px rgba(70,55,35,.18)}
+  .screen{width:100%;height:100%;border-radius:44px;background:var(--cream);overflow:hidden;position:relative}
+  .island{position:absolute;left:50%;top:10px;transform:translateX(-50%);width:96px;height:28px;border-radius:20px;background:#1C1B19;z-index:5}
+  .sbar{height:48px;display:flex;justify-content:space-between;align-items:center;padding:4px 28px 0 30px;font-size:13.5px;font-weight:600}
+  .sbar .r{display:flex;gap:5px;align-items:center}
+  .sbar .r svg{width:16px;height:12px}
+  .mtop{padding:4px 18px 0;display:flex;justify-content:space-between;align-items:center}
+  .mtop .brand{font-size:13px}
+  .mtop .brand .mk{width:28px;height:28px;border-radius:9px}
+  .mtop .sh{width:32px;height:32px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;background:var(--surface)}
+  .mhero{padding:10px 18px 0}
+  .mhero .eyebrow{font-size:10px;padding:5px 10px}
+  .mhero h1{white-space:nowrap;font-size:29px;line-height:1.05;font-weight:400;margin:10px 0 6px;letter-spacing:-.01em}
+  .mhero h1 em{font-style:italic;color:var(--terra)}
+  .mhero p{font-size:12.5px;line-height:1.5;color:var(--ink-2)}
+  .toast{margin:12px 14px 0;border-radius:14px;background:#EEF2E8;border:1px solid #D6DFCB;padding:11px 12px;display:flex;gap:10px;align-items:flex-start}
+  .toast .ck{width:28px;height:28px;border-radius:50%;background:var(--sage-d);color:#fff;display:grid;place-items:center;flex:none}
+  .toast .ck svg{width:15px;height:15px;stroke-width:2.4}
+  .toast b{display:block;font-size:13px;font-weight:600;color:#3F4D35}
+  .toast span{display:block;font-size:11.5px;color:#5C6A52;margin-top:1px}
+  .toast .tg{display:inline-flex;align-items:center;gap:5px;margin-top:6px;font-size:10.5px;font-weight:500;color:#5C6A52;background:rgba(255,255,255,.65);border-radius:999px;padding:3px 8px}
+  .toast .tg svg{width:11px;height:11px}
+  .mtabs{display:flex;margin:12px 14px 0;background:#EFE9DF;border-radius:12px;padding:3px}
+  .mtabs span{flex:1;text-align:center;font-size:12px;font-weight:500;color:var(--ink-2);padding:7px 0;border-radius:9px;display:flex;align-items:center;justify-content:center;gap:5px}
+  .mtabs span.on{background:var(--surface);color:var(--ink);font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+  .mtabs svg{width:13px;height:13px}
+  .mlist{padding:12px 14px 0;display:flex;flex-direction:column;gap:12px}
+  .mcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);position:relative}
+  .mcard .ph{height:132px}
+  .mcard .cb{padding:12px 14px 14px}
+  .mcard .cb p{min-height:0}
+  .mcard .row{display:flex;gap:8px;margin-top:10px}
+  .mcard .btn{height:38px;font-size:13px}
+  .mcard .pixbtn{width:44px;flex:none;height:38px;border-radius:11px;border:1px solid var(--line-2);display:grid;place-items:center;color:var(--sage-d)}
+  .mcard.res .ph svg.prod{filter:grayscale(.55) opacity(.6)}
+  .mcard.res .ph{background:#EEEAE3 !important}
+  .mnav{position:absolute;left:0;right:0;bottom:0;height:78px;background:rgba(255,253,249,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);display:flex;justify-content:space-around;padding-top:10px}
+  .mnav div{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10.5px;color:var(--muted);font-weight:500}
+  .mnav div.on{color:var(--terra)}
+  .mnav svg{width:20px;height:20px}
+  .mnav:after{content:"";position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:118px;height:4px;border-radius:4px;background:#2A2926}
+</style>
+</head>
+<body>
+
+<!-- ===== shared product artwork ===== -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <!-- panelas -->
+    <linearGradient id="potBody" x1="0" x2="1">
+      <stop offset="0" stop-color="#9C4F33"/><stop offset=".28" stop-color="#D3815D"/><stop offset=".55" stop-color="#C46D4A"/><stop offset="1" stop-color="#8E4630"/>
+    </linearGradient>
+    <linearGradient id="potLid" x1="0" x2="1">
+      <stop offset="0" stop-color="#A9583A"/><stop offset=".35" stop-color="#DB9070"/><stop offset="1" stop-color="#9A4D32"/>
+    </linearGradient>
+    <linearGradient id="potBody2" x1="0" x2="1">
+      <stop offset="0" stop-color="#B9AC98"/><stop offset=".3" stop-color="#EDE5D7"/><stop offset=".6" stop-color="#DDD2C1"/><stop offset="1" stop-color="#A99B86"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0" x2="1"><stop offset="0" stop-color="#8A6440"/><stop offset=".5" stop-color="#B98E62"/><stop offset="1" stop-color="#7C5937"/></linearGradient>
+    <radialGradient id="shadow"><stop offset="0" stop-color="#5A4632" stop-opacity=".28"/><stop offset="1" stop-color="#5A4632" stop-opacity="0"/></radialGradient>
+    <radialGradient id="bgPan" cx=".5" cy=".38" r=".75"><stop offset="0" stop-color="#FBF9F6"/><stop offset="1" stop-color="#ECE7E0"/></radialGradient>
+    <radialGradient id="bgCof" cx=".5" cy=".38" r=".75"><stop offset="0" stop-color="#F8F3EC"/><stop offset="1" stop-color="#E7DED2"/></radialGradient>
+    <radialGradient id="bgTow" cx=".5" cy=".38" r=".75"><stop offset="0" stop-color="#FAF8F4"/><stop offset="1" stop-color="#EAE6DF"/></radialGradient>
+    <!-- cafeteira -->
+    <linearGradient id="glass" x1="0" x2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset=".18" stop-color="#ffffff" stop-opacity=".12"/><stop offset=".75" stop-color="#ffffff" stop-opacity=".05"/><stop offset=".9" stop-color="#ffffff" stop-opacity=".35"/><stop offset="1" stop-color="#ffffff" stop-opacity=".1"/>
+    </linearGradient>
+    <linearGradient id="coffee" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8A5530"/><stop offset=".12" stop-color="#4A2A17"/><stop offset="1" stop-color="#2B170C"/></linearGradient>
+    <linearGradient id="steel" x1="0" x2="1">
+      <stop offset="0" stop-color="#7E7A72"/><stop offset=".25" stop-color="#E6E3DD"/><stop offset=".5" stop-color="#AFAAA1"/><stop offset=".8" stop-color="#D9D5CE"/><stop offset="1" stop-color="#77736B"/>
+    </linearGradient>
+    <linearGradient id="cork" x1="0" x2="1"><stop offset="0" stop-color="#5A5650"/><stop offset=".4" stop-color="#3A3833"/><stop offset="1" stop-color="#262522"/></linearGradient>
+    <!-- toalhas -->
+    <linearGradient id="tw1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A7B597"/><stop offset="1" stop-color="#8A9A7B"/></linearGradient>
+    <linearGradient id="tw2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6F1E8"/><stop offset="1" stop-color="#E4DCCD"/></linearGradient>
+    <linearGradient id="tw3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E2B49B"/><stop offset="1" stop-color="#CF9878"/></linearGradient>
+    <pattern id="terry" width="3" height="3" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r=".55" fill="#000" fill-opacity=".06"/></pattern>
+
+    <symbol id="p-panelas" viewBox="16 26 270 196">
+      <rect x="-200" y="-150" width="700" height="520" fill="url(#bgPan)"/>
+      <ellipse cx="150" cy="184" rx="122" ry="13" fill="url(#shadow)"/>
+      <!-- small pan behind -->
+      <g transform="translate(148 74)">
+        <rect x="0" y="16" width="86" height="58" rx="10" fill="url(#potBody2)"/>
+        <ellipse cx="43" cy="16" rx="43" ry="8" fill="#F4EEE4"/>
+        <ellipse cx="43" cy="17" rx="38" ry="6" fill="#2E2A27"/>
+        <rect x="84" y="20" width="44" height="8" rx="4" fill="url(#wood)"/>
+      </g>
+      <!-- main casserole -->
+      <g transform="translate(46 70)">
+        <path d="M-10 52 q-10 0 -10 8 q0 8 10 8" fill="none" stroke="#7E3E2A" stroke-width="7" stroke-linecap="round"/>
+        <path d="M150 52 q10 0 10 8 q0 8 -10 8" fill="none" stroke="#7E3E2A" stroke-width="7" stroke-linecap="round"/>
+        <path d="M0 40 h140 v58 q0 16 -16 16 h-108 q-16 0 -16 -16z" fill="url(#potBody)"/>
+        <rect x="0" y="40" width="140" height="6" fill="#000" fill-opacity=".10"/>
+        <ellipse cx="70" cy="40" rx="74" ry="12" fill="#8E4630"/>
+        <path d="M-4 40 q74 -46 148 0 q-74 12 -148 0z" fill="url(#potLid)"/>
+        <path d="M14 30 q30 -18 60 -18" stroke="#fff" stroke-opacity=".35" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <rect x="58" y="6" width="24" height="10" rx="5" fill="#E9DFD0"/>
+        <rect x="64" y="0" width="12" height="9" rx="4" fill="#D8CCBA"/>
+        <rect x="16" y="54" width="6" height="44" rx="3" fill="#fff" fill-opacity=".18"/>
+      </g>
+    </symbol>
+
+    <symbol id="p-cafe" overflow="visible" viewBox="36 4 240 212">
+      <rect x="-200" y="-150" width="700" height="520" fill="url(#bgCof)"/>
+      <ellipse cx="150" cy="190" rx="92" ry="12" fill="url(#shadow)"/>
+      <!-- cup -->
+      <g transform="translate(196 140)">
+        <path d="M0 6 h46 l-4 34 q-1 6 -7 6 h-24 q-6 0 -7 -6z" fill="#F7F2EA"/>
+        <path d="M44 14 q12 0 12 9 q0 9 -13 10" fill="none" stroke="#EDE5D8" stroke-width="5"/>
+        <ellipse cx="23" cy="6" rx="23" ry="5" fill="#E8DFD1"/>
+        <ellipse cx="23" cy="7" rx="19" ry="3.5" fill="#5A341C"/>
+        <ellipse cx="26" cy="49" rx="34" ry="5" fill="#E1D7C8"/>
+      </g>
+      <!-- french press -->
+      <g transform="translate(98 26)">
+        <rect x="46" y="0" width="8" height="18" rx="2" fill="url(#steel)"/>
+        <circle cx="50" cy="0" r="8" fill="url(#cork)"/>
+        <path d="M6 30 q44 -22 88 0z" fill="url(#steel)"/>
+        <rect x="4" y="28" width="92" height="8" rx="3" fill="url(#steel)"/>
+        <!-- glass -->
+        <rect x="10" y="36" width="80" height="118" rx="4" fill="#C9BEB0" fill-opacity=".35"/>
+        <rect x="10" y="70" width="80" height="84" rx="3" fill="url(#coffee)"/>
+        <rect x="10" y="36" width="80" height="118" rx="4" fill="url(#glass)"/>
+        <rect x="47" y="36" width="5" height="40" fill="#BDB7AE" fill-opacity=".6"/>
+        <rect x="12" y="62" width="76" height="6" rx="2" fill="url(#steel)" opacity=".85"/>
+        <!-- frame -->
+        <rect x="4" y="96" width="92" height="9" rx="3" fill="url(#steel)"/>
+        <rect x="4" y="150" width="92" height="12" rx="4" fill="url(#steel)"/>
+        <rect x="6" y="36" width="5" height="122" rx="2" fill="url(#steel)"/>
+        <rect x="89" y="36" width="5" height="122" rx="2" fill="url(#steel)"/>
+        <rect x="14" y="162" width="10" height="5" rx="2" fill="#77736B"/>
+        <rect x="76" y="162" width="10" height="5" rx="2" fill="#77736B"/>
+        <!-- handle -->
+        <path d="M96 48 h14 q12 0 12 12 v62 q0 12 -12 12 h-14" fill="none" stroke="url(#cork)" stroke-width="11" stroke-linejoin="round"/>
+        <!-- spout -->
+        <path d="M4 32 l-8 -4 l2 10z" fill="#9E998F"/>
+      </g>
+    </symbol>
+
+    <symbol id="p-toalhas" overflow="visible" viewBox="30 14 240 196">
+      <rect x="-200" y="-150" width="700" height="520" fill="url(#bgTow)"/>
+      <ellipse cx="150" cy="186" rx="118" ry="13" fill="url(#shadow)"/>
+      <!-- bottom: sage -->
+      <g transform="translate(52 128)">
+        <rect x="0" y="0" width="196" height="52" rx="18" fill="url(#tw1)"/>
+        <rect x="0" y="0" width="196" height="52" rx="18" fill="url(#terry)"/>
+        <rect x="0" y="34" width="196" height="5" fill="#fff" fill-opacity=".22"/>
+        <rect x="0" y="41" width="196" height="2" fill="#fff" fill-opacity=".18"/>
+        <path d="M10 2 q88 -8 176 0" stroke="#fff" stroke-opacity=".25" stroke-width="3" fill="none"/>
+      </g>
+      <!-- middle: cream -->
+      <g transform="translate(58 82)">
+        <rect x="0" y="0" width="184" height="50" rx="17" fill="url(#tw2)"/>
+        <rect x="0" y="0" width="184" height="50" rx="17" fill="url(#terry)"/>
+        <rect x="0" y="31" width="184" height="5" fill="#C8BBA5" fill-opacity=".45"/>
+        <rect x="0" y="38" width="184" height="2" fill="#C8BBA5" fill-opacity=".35"/>
+      </g>
+      <!-- top: terracotta -->
+      <g transform="translate(66 40)">
+        <rect x="0" y="0" width="168" height="46" rx="16" fill="url(#tw3)"/>
+        <rect x="0" y="0" width="168" height="46" rx="16" fill="url(#terry)"/>
+        <rect x="0" y="28" width="168" height="5" fill="#fff" fill-opacity=".25"/>
+        <rect x="0" y="35" width="168" height="2" fill="#fff" fill-opacity=".2"/>
+        <path d="M12 3 q72 -7 144 0" stroke="#fff" stroke-opacity=".3" stroke-width="3" fill="none"/>
+      </g>
+      <!-- small sprig -->
+      <g transform="translate(232 150)" opacity=".9">
+        <path d="M0 30 q6 -18 20 -30" stroke="#6F7F62" stroke-width="2" fill="none"/>
+        <ellipse cx="8" cy="18" rx="6" ry="3" transform="rotate(-50 8 18)" fill="#8C9C7E"/>
+        <ellipse cx="15" cy="8" rx="6" ry="3" transform="rotate(-40 15 8)" fill="#9DAC8F"/>
+        <ellipse cx="18" cy="20" rx="6" ry="3" transform="rotate(-10 18 20)" fill="#8C9C7E"/>
+      </g>
+    </symbol>
+
+    <!-- icons -->
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3 10 14"/><path d="M21 3l-7 18-4-7-7-4z"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></symbol>
+  </defs>
+</svg>
+
+<div class="caption">
+  <div class="t"><i class="dot"></i>Lista de presentes · Chá de casa nova <span class="m">— proposta de design da página do convidado</span></div>
+  <div class="legend"><span><b style="background:#6E8A5C"></b>Disponível</span><span><b style="background:#2D2C29"></b>Tem dono</span><span><b style="background:#B4613F"></b>Ação do convidado</span></div>
+</div>
+
+<!-- ======================= DESKTOP ======================= -->
+<div class="desk">
+  <div class="chrome">
+    <div class="dots"><i></i><i></i><i></i></div>
+    <div class="url"><svg class="i"><use href="#i-lock"/></svg>listadepresentes.exemplo/nosso-cantinho-novo</div>
+    <div class="sp"></div>
+  </div>
+
+  <div class="nav">
+    <div class="brand"><span class="mk"><svg class="i" style="width:17px;height:17px"><use href="#i-home"/></svg></span>Lista de presentes</div>
+    <div class="links">
+      <a class="on">Presentes</a>
+      <a>Contribuir via Pix</a>
+      <a>Como funciona</a>
+    </div>
+    <div class="share"><svg class="i" style="width:14px;height:14px"><use href="#i-heart"/></svg>Chá de casa nova</div>
+  </div>
+
+  <div class="page">
+    <div class="hero">
+      <div>
+        <span class="eyebrow"><svg class="i" style="width:13px;height:13px"><use href="#i-cal"/></svg>Chá de casa nova · 6 de dezembro</span>
+        <h1 class="serif">Nosso cantinho <em>novo</em></h1>
+        <p class="lead">Que alegria ter você por perto nesta nova fase! Preparamos esta lista com carinho. Escolha um presente para reservar ou, se preferir, contribua com o valor via Pix.</p>
+      </div>
+      <div class="how">
+        <h4>Como funciona</h4>
+        <div class="step"><span class="n">1</span><div class="tx"><b>Escolha um presente</b> disponível na lista</div></div>
+        <div class="step"><span class="n">2</span><div class="tx"><b>Decida como presentear</b>
+          <div class="or"><span class="chip t"><svg class="i"><use href="#i-bag"/></svg>Comprar o produto</span><span class="chip s"><svg class="i"><use href="#i-qr"/></svg>Enviar via Pix</span></div></div></div>
+        <div class="step"><span class="n">3</span><div class="tx"><b>Pronto!</b> Os anfitriões recebem um aviso</div></div>
+      </div>
+    </div>
+
+    <div class="sechead">
+      <h2>Presentes <small>8 de 12 ainda disponíveis</small></h2>
+      <div class="filters"><span class="on">Todos</span><span>Disponíveis</span><span>Reservados</span></div>
+    </div>
+
+    <div class="body">
+      <div class="grid">
+        <!-- card 1: available + selected -->
+        <div class="card sel">
+          <div class="ph" style="background:#EFEAE3">
+            <svg class="prod" preserveAspectRatio="xMidYMid slice"><use href="#p-panelas"/></svg>
+            <span class="badge av"><i></i>Disponível</span>
+            <span class="imp"><svg class="i"><use href="#i-link"/></svg>Importado do anúncio</span>
+          </div>
+          <div class="cb">
+            <h3>Jogo de panelas</h3>
+            <p>Caçarola e panela em cerâmica com revestimento antiaderente.</p>
+            <div class="price"><b>R$ 389,90</b><span>valor de referência</span></div>
+            <div class="btn pri"><svg class="i"><use href="#i-gift"/></svg>Reservar presente</div>
+            <div class="btn sec"><svg class="i"><use href="#i-qr"/></svg>Contribuir via Pix</div>
+          </div>
+        </div>
+
+        <!-- card 2: reserved -->
+        <div class="card res">
+          <div class="ph">
+            <svg class="prod" preserveAspectRatio="xMidYMid slice"><use href="#p-cafe"/></svg>
+            <span class="badge own"><svg class="i"><use href="#i-lock"/></svg>Tem dono</span>
+            <span class="imp"><svg class="i"><use href="#i-link"/></svg>Importado do anúncio</span>
+          </div>
+          <div class="cb">
+            <h3>Cafeteira prensa francesa</h3>
+            <p>Vidro borossilicato e aço inox, capacidade de 600 ml.</p>
+            <div class="price"><b>R$ 159,90</b><span>valor de referência</span></div>
+            <div class="resbox"><span class="ic"><svg class="i" style="width:14px;height:14px"><use href="#i-check"/></svg></span><div><b>Reservado por outra pessoa</b><span>Este presente já foi escolhido</span></div></div>
+          </div>
+        </div>
+
+        <!-- card 3: available -->
+        <div class="card">
+          <div class="ph" style="background:#EFEBE5">
+            <svg class="prod" preserveAspectRatio="xMidYMid slice"><use href="#p-toalhas"/></svg>
+            <span class="badge av"><i></i>Disponível</span>
+            <span class="imp"><svg class="i"><use href="#i-link"/></svg>Importado do anúncio</span>
+          </div>
+          <div class="cb">
+            <h3>Jogo de toalhas de banho</h3>
+            <p>Três peças em algodão macio, tons de sálvia, cru e terracota.</p>
+            <div class="price"><b>R$ 219,90</b><span>valor de referência</span></div>
+            <div class="btn pri"><svg class="i"><use href="#i-gift"/></svg>Reservar presente</div>
+            <div class="btn sec"><svg class="i"><use href="#i-qr"/></svg>Contribuir via Pix</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pix panel -->
+      <div class="pix">
+        <div class="top"><h4>Como você quer presentear?</h4><span class="x"><svg class="i" style="width:13px;height:13px"><use href="#i-x"/></svg></span></div>
+        <div class="item">
+          <span class="th"><svg><use href="#p-panelas"/></svg></span>
+          <div><b>Jogo de panelas</b><span>Valor sugerido: R$ 389,90</span></div>
+        </div>
+        <div class="opts">
+          <div class="opt a"><span class="radio"></span><span class="oi"><svg class="i" style="width:14px;height:14px"><use href="#i-bag"/></svg></span><b>Comprar o produto</b><span>Abrir o anúncio e reservar</span></div>
+          <div class="opt b"><span class="radio"></span><span class="oi"><svg class="i" style="width:14px;height:14px"><use href="#i-qr"/></svg></span><b>Contribuir via Pix</b><span>Enviar o valor aos anfitriões</span></div>
+        </div>
+        <div class="qrwrap">
+          <div class="qr"><canvas id="qr1" width="208" height="208"></canvas><span class="demo">EXEMPLO</span></div>
+          <div class="qrtx"><b>Escaneie no app do banco</b><span>QR Code ilustrativo, apenas para demonstração do fluxo.</span></div>
+        </div>
+        <div class="orlbl">Ou copie a chave Pix</div>
+        <div class="keyrow">
+          <div class="key">chave-de-exemplo</div>
+          <div class="copy"><svg class="i"><use href="#i-copy"/></svg>Copiar chave</div>
+        </div>
+        <div class="note"><svg class="i"><use href="#i-info"/></svg>Chave e QR Code fictícios, sem validade para pagamento.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= MOBILE ======================= -->
+<div class="phone">
+  <div class="screen">
+    <div class="island"></div>
+    <div class="sbar"><span>9:41</span>
+      <span class="r">
+        <svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#2D2C29"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#2D2C29"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#2D2C29"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#2D2C29"/></svg>
+        <svg viewBox="0 0 26 12" style="width:24px"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="#2D2C29" stroke-opacity=".45"/><rect x="2" y="2" width="16" height="8" rx="1.8" fill="#2D2C29"/><rect x="23.5" y="4" width="1.8" height="4" rx=".9" fill="#2D2C29" fill-opacity=".45"/></svg>
+      </span>
+    </div>
+    <div class="mtop">
+      <div class="brand"><span class="mk"><svg class="i" style="width:15px;height:15px"><use href="#i-home"/></svg></span>Lista de presentes</div>
+      <span class="sh"><svg class="i" style="width:14px;height:14px"><use href="#i-heart"/></svg></span>
+    </div>
+    <div class="mhero">
+      <span class="eyebrow"><svg class="i" style="width:11px;height:11px"><use href="#i-cal"/></svg>Chá de casa nova · 6/12</span>
+      <h1 class="serif">Nosso cantinho <em>novo</em></h1>
+      <p>Escolha um presente para reservar ou contribua via Pix. Obrigado pelo carinho!</p>
+    </div>
+
+    <div class="toast">
+      <span class="ck"><svg class="i"><use href="#i-check"/></svg></span>
+      <div>
+        <b>Reservado com sucesso</b>
+        <span class="tg"><svg class="i"><use href="#i-send"/></svg>Notificação enviada pelo Telegram</span>
+      </div>
+    </div>
+
+    <div class="mtabs"><span class="on"><svg class="i"><use href="#i-gift"/></svg>Presentes</span><span><svg class="i"><use href="#i-qr"/></svg>Contribuir via Pix</span></div>
+
+    <div class="mlist">
+      <div class="mcard">
+        <div class="ph" style="background:#EFEBE5">
+          <svg class="prod" viewBox="0 0 316 132" preserveAspectRatio="xMidYMid slice"><use href="#p-toalhas" x="0" y="20" width="316" height="106"/></svg>
+          <span class="badge av"><i></i>Disponível</span>
+          <span class="imp"><svg class="i"><use href="#i-link"/></svg>Importado do anúncio</span>
+        </div>
+        <div class="cb">
+          <h3>Jogo de toalhas de banho</h3>
+          <p>Três peças em algodão macio. · <b style="color:var(--ink);font-weight:600">R$ 219,90</b></p>
+          <div class="row">
+            <div class="btn pri"><svg class="i"><use href="#i-gift"/></svg>Reservar presente</div>
+            <div class="pixbtn"><svg class="i"><use href="#i-qr"/></svg></div>
+          </div>
+        </div>
+      </div>
+      <div class="mcard res">
+        <div class="ph">
+          <svg class="prod" viewBox="0 0 316 132" preserveAspectRatio="xMidYMid slice"><use href="#p-cafe" x="0" y="18" width="316" height="108"/></svg>
+          <span class="badge own"><svg class="i"><use href="#i-lock"/></svg>Tem dono</span>
+        </div>
+        <div class="cb">
+          <h3>Cafeteira prensa francesa</h3>
+          <p>Reservado por outra pessoa</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mnav">
+      <div class="on"><svg class="i"><use href="#i-gift"/></svg>Presentes</div>
+      <div><svg class="i"><use href="#i-qr"/></svg>Pix</div>
+      <div><svg class="i"><use href="#i-info"/></svg>Como funciona</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // QR Code puramente ilustrativo: padrão pseudoaleatório, não codifica nenhum dado.
+  (function(){
+    const c=document.getElementById('qr1'),x=c.getContext('2d'),N=25,s=c.width/N;
+    let seed=7;const r=()=>(seed=(seed*16807)%2147483647)/2147483647;
+    x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.fillStyle='#2D2C29';
+    const finder=(a,b)=>{x.fillRect(a*s,b*s,7*s,7*s);x.fillStyle='#fff';x.fillRect((a+1)*s,(b+1)*s,5*s,5*s);x.fillStyle='#2D2C29';x.fillRect((a+2)*s,(b+2)*s,3*s,3*s);};
+    const inF=(i,j)=>(i<8&&j<8)||(i>N-9&&j<8)||(i<8&&j>N-9);
+    for(let i=0;i<N;i++)for(let j=0;j<N;j++){ if(inF(i,j))continue; if(r()>.52) x.fillRect(i*s,j*s,s,s); }
+    finder(0,0);finder(N-7,0);finder(0,N-7);
+  })();
+</script>
+</body>
+</html>
