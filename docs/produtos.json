@@ -48,7 +48,9 @@
     "id": "potes-hermeticos-de-vidro",
     "nome": "Kit 3 Potes Herméticos",
     "categoria": "Cozinha",
-    "descricao": "",
+    "descricao": "Vidro borossilicato com tampa de trava hermética: 400 ml, 700 ml e 1040 ml.",
+    "preco": 37.9,
+    "imagem": "img/potes-hermeticos-de-vidro.jpg",
     "link": "https://shopee.com.br/product/1363781547/22299396635",
     "limite": 3
   },
@@ -56,21 +58,27 @@
     "id": "potes-hermeticos",
     "nome": "Potes Herméticos",
     "categoria": "Cozinha",
-    "descricao": "",
+    "descricao": "Kit Rebirth com 10 potes empilháveis: 2 de 2 L, 4 de 950 ml e 4 de 450 ml.",
+    "preco": 79.9,
+    "imagem": "img/potes-hermeticos.jpg",
     "link": "https://shopee.com.br/product/528261467/49108107903"
   },
   {
     "id": "espatula-de-silicone",
     "nome": "Kit Utensílios de Silicone 10 Peças",
     "categoria": "Cozinha",
-    "descricao": "",
+    "descricao": "Haushop, 10 utensílios de silicone com cabo inox e suporte.",
+    "preco": 72.99,
+    "imagem": "img/espatula-de-silicone.jpg",
     "link": "https://shopee.com.br/product/1819539909/42484346166"
   },
   {
     "id": "lixeira-automatica-para-banheiro",
     "nome": "Lixeira Automática",
     "categoria": "Cama e banho",
-    "descricao": "",
+    "descricao": "Abre por sensor de aproximação, toque ou vibração, 16 litros.",
+    "preco": 65.99,
+    "imagem": "img/lixeira-automatica-para-banheiro.jpg",
     "link": "https://shopee.com.br/product/1053212537/23698779418"
   },
   {
@@ -104,7 +112,9 @@
     "id": "jarra-de-agua",
     "nome": "Garrafas de Água de Vidro",
     "categoria": "Cozinha",
-    "descricao": "",
+    "descricao": "Kit com 4 jarras de vidro de 1 litro.",
+    "preco": 51.29,
+    "imagem": "img/jarra-de-agua.jpg",
     "link": "https://shopee.com.br/product/1363781547/22899195528"
   },
   {
@@ -120,7 +130,9 @@
     "id": "cortina",
     "nome": "Cortina Blackout para Trilho Suíço 2,30 m",
     "categoria": "Casa e decoração",
-    "descricao": "",
+    "descricao": "80% blackout, para trilho suíço, 3 m de largura em 2 partes de 1,50 m. Não acompanha trilho.",
+    "preco": 149.69,
+    "imagem": "img/cortina.jpg",
     "link": "https://shopee.com.br/product/1196520241/22898844989"
   },
   {
@@ -201,56 +213,72 @@
     "id": "pipoqueira-britania",
     "nome": "Pipoqueira Britânia 127 V",
     "categoria": "Eletrodomésticos",
-    "descricao": "",
+    "descricao": "Britânia Poplite BPI01RS, sem óleo, 1200 W, rosa.",
+    "preco": 142.41,
+    "imagem": "img/pipoqueira-britania.jpg",
     "link": "https://shopee.com.br/product/811879342/23097346445"
   },
   {
     "id": "kit-5-bowls-de-aluminio",
     "nome": "Kit 5 Bowls de Alumínio",
     "categoria": "Cozinha",
-    "descricao": "",
+    "descricao": "6 bowls de aço inox com tampas plásticas, empilháveis.",
+    "preco": 103.45,
+    "imagem": "img/kit-5-bowls-de-aluminio.jpg",
     "link": "https://shopee.com.br/product/1854274538/58216123322"
   },
   {
     "id": "panela-de-pressao-eletrica-rita-lobo",
     "nome": "Panela de Pressão Elétrica Rita Lobo",
     "categoria": "Eletrodomésticos",
-    "descricao": "",
+    "descricao": "Electrolux Experience PCC20 por Rita Lobo, 6 litros, digital, preta.",
+    "preco": 483.83,
+    "imagem": "img/panela-de-pressao-eletrica-rita-lobo.jpg",
     "link": "https://shopee.com.br/product/1526836548/22693991409"
   },
   {
     "id": "kit-5-potes-hermeticos",
     "nome": "Kit 5 Potes Herméticos",
     "categoria": "Cozinha",
-    "descricao": "",
+    "descricao": "5 potes de vidro de 370 ml com tampa de trava, vão ao forno e micro-ondas.",
+    "preco": 44.9,
+    "imagem": "img/kit-5-potes-hermeticos.jpg",
     "link": "https://shopee.com.br/product/1417910231/58261904419"
   },
   {
     "id": "kit-6-pratos-de-sobremesa",
     "nome": "Kit 6 Pratos de Sobremesa",
     "categoria": "Cozinha",
-    "descricao": "",
+    "descricao": "6 pratos redondos de vidro opalino branco, 18 cm.",
+    "preco": 28.85,
+    "imagem": "img/kit-6-pratos-de-sobremesa.jpg",
     "link": "https://shopee.com.br/product/1322528149/52918618715"
   },
   {
     "id": "fouet-profissional",
     "nome": "Fouet Profissional",
     "categoria": "Cozinha",
-    "descricao": "",
+    "descricao": "Batedor manual de aço inox, 30 cm, hastes grossas.",
+    "preco": 34.9,
+    "imagem": "img/fouet-profissional.jpg",
     "link": "https://shopee.com.br/product/1368874973/58261370550"
   },
   {
     "id": "kit-4-formas-de-silicone-hexagonais",
     "nome": "Kit 4 Formas de Silicone Hexagonais",
     "categoria": "Cozinha",
-    "descricao": "",
+    "descricao": "Formas de silicone formato colmeia, 37 cavidades cada (gelo ou bombom). Escolha o kit com 4.",
+    "preco": 38.8,
+    "imagem": "img/kit-4-formas-de-silicone-hexagonais.jpg",
     "link": "https://shopee.com.br/product/1404820454/19099865976"
   },
   {
     "id": "forma-de-silicone-4-divisorias",
     "nome": "Forma de Silicone com 4 Divisórias",
     "categoria": "Cozinha",
-    "descricao": "",
+    "descricao": "Silicone com tampa e 4 divisórias de 250 ml para congelar porções.",
+    "preco": 54.0,
+    "imagem": "img/forma-de-silicone-4-divisorias.jpg",
     "link": "https://shopee.com.br/product/832515478/58263775108"
   }
 ]
