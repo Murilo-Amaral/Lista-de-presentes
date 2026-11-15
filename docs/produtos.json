@@ -183,15 +183,6 @@
     "link": "https://www.amazon.com.br/dp/B08XZNGNHR"
   },
   {
-    "id": "pano-de-chao",
-    "nome": "Pano de Chão",
-    "categoria": "Limpeza e lavanderia",
-    "descricao": "Scotch-Brite (3M), Super Pano de Chão azul.",
-    "preco": 37.91,
-    "imagem": "img/pano-de-chao.jpg",
-    "link": "https://www.magazineluiza.com.br/super-pano-de-chao-scotch-brite-azul-3m/p/aa0h5h4cf2/me/pano/"
-  },
-  {
     "id": "pipoqueira-britania",
     "nome": "Pipoqueira Britânia 127 V",
     "categoria": "Eletrodomésticos",
