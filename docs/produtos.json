@@ -104,7 +104,8 @@
     "id": "micro-ondas",
     "nome": "Micro-ondas Panasonic NN-ST66NBRU",
     "categoria": "Eletrodomésticos",
-    "descricao": "Panasonic NN-ST66NBRU, 34 litros, Dupla Refeição, Black Glass, preto, 127 V.",
+    "descricao": "Panasonic NN-ST66NBRU, 34 litros, 900 W, Dupla Refeição, Black Glass, preto, 127 V.",
+    "preco": 652.28,
     "imagem": "img/micro-ondas-panasonic.jpg",
     "link": "https://www.mercadolivre.com.br/microondas-panasonic-nn-st66nbru-black-glass-34l-dupla-refeicao/p/MLB22491295?pdp_filters=item_id%3AMLB5066925756"
   },
