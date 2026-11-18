@@ -102,12 +102,12 @@
   },
   {
     "id": "micro-ondas",
-    "nome": "Micro-ondas",
+    "nome": "Micro-ondas Panasonic NN-ST66NBRU",
     "categoria": "Eletrodomésticos",
-    "descricao": "LG MS3043BR, 30 litros, EasyClean, prata, 127 V.",
-    "preco": 699.0,
-    "imagem": "img/micro-ondas.jpg",
-    "link": "https://www.amazon.com.br/dp/B0D9Z2N69R"
+    "descricao": "Panasonic NN-ST66NBRU, 34 litros, Dupla Refeição, Black Glass, preto, 127 V.",
+    "preco": 709.0,
+    "imagem": "img/micro-ondas-panasonic.jpg",
+    "link": "https://www.amazon.com.br/dp/B0C1HNMYD7"
   },
   {
     "id": "jarra-de-agua",
