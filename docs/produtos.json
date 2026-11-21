@@ -257,10 +257,11 @@
   },
   {
     "id": "panela-de-pressao-brinox-ceramic-pressure",
-    "nome": "Panela de Pressão Brinox Ceramic Pressure",
+    "nome": "Panela de Pressão Brinox Ceramic Pressure 5,4 L",
     "categoria": "Cozinha",
-    "descricao": "",
-    "preco": 175.0,
+    "descricao": "Revestimento cerâmico antiaderente, 5,4 litros.",
+    "preco": 180.0,
+    "imagem": "img/panela-de-pressao-brinox-ceramic-pressure.jpg",
     "link": "https://www.amazon.com.br/dp/B0F9ZTSFFX"
   }
 ]
